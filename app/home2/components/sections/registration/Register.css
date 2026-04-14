@@ -91,9 +91,14 @@ input[type="radio"] {
 .card {
     user-select: none;
     background: #ffffff;
-    border: 1px solid rgba(30, 39, 86, 0.1);
-    box-shadow: 0 4px 24px rgba(30, 39, 86, 0.08);
-    border-radius: 12px;
+    border: 1px solid #e8eaed;
+    box-shadow: 0 4px 24px rgba(26, 31, 54, 0.08);
+    border-radius: 16px;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 8px 32px rgba(26, 31, 54, 0.12);
 }
 
 .MuiStepLabel-iconContainer {
@@ -175,21 +180,21 @@ input[type="radio"] {
 }
 
 .otp-input-box {
-    width: 45px;
-    height: 45px;
+    width: 48px;
+    height: 48px;
     text-align: center;
     font-size: 18px;
     font-weight: 600;
-    border: 2px solid rgba(30, 39, 86, 0.2);
-    border-radius: 8px;
+    border: 2px solid #e8eaed;
+    border-radius: 12px;
     outline: none;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     background-color: #fff;
 }
 
 .otp-input-box:focus {
-    border-color: #f26522;
-    box-shadow: 0 0 0 0.25rem rgba(242, 101, 34, 0.2);
+    border-color: #00b4a0;
+    box-shadow: 0 0 0 0.25rem rgba(0, 180, 160, 0.2);
     transform: scale(1.05);
 }
 

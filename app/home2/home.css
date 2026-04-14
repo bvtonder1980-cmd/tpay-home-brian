@@ -252,9 +252,9 @@ body {
   -moz-font-smoothing: antialiased;
   -o-font-smoothing: antialiased;
   -webkit-locale: auto;
-  font-family: "HelveticaNeueCyr", sans-serif;
-  color: #1e2756 !important;
-  background: #ffffff !important;
+  font-family: "Inter", "Barlow", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #1a1f36 !important;
+  background: #fafbfc !important;
   min-height: 100vh;
 }
 
@@ -265,11 +265,12 @@ button {
 
 a {
   text-decoration: none;
-  color: #1e2756;
+  color: #1a1f36;
+  transition: color 0.2s ease;
 }
 
 a:hover {
-  color: #f26522;
+  color: #00b4a0;
 }
 
 ol,
@@ -295,13 +296,17 @@ img {
 }
 
 body::-webkit-scrollbar {
-  width: 6px;
-  background: #f1f5f9;
+  width: 8px;
+  background: #f4f5f7;
 }
 
 body::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #1e2756 0%, #f26522 100%);
-  border-radius: 3px;
+  background: linear-gradient(180deg, #00b4a0 0%, #00d4c4 100%);
+  border-radius: 4px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #009688 0%, #00b4a0 100%);
 }
 
 .main {
@@ -352,17 +357,18 @@ body::-webkit-scrollbar-thumb {
   color: #ffffff;
   cursor: pointer;
   display: inline-block;
-  border-radius: 70px;
-  background: #f26522;
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #ff6b6b 0%, #ff8787 100%);
+  -webkit-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   font-size: 0.9375vw;
-  line-height: 130%;
-  text-transform: uppercase;
+  line-height: 140%;
+  text-transform: none;
   text-align: center;
-  padding: 0.72917vw 3.125vw;
-  box-shadow: 0 4px 20px rgba(242, 101, 34, 0.3);
+  padding: 0.85vw 2.5vw;
+  box-shadow: 0 8px 30px -8px rgba(255, 107, 107, 0.4);
   font-weight: 600;
+  letter-spacing: 0.01em;
 }
 
 @media screen and (max-width: 768px) and (orientation: portrait) {
@@ -374,10 +380,10 @@ body::-webkit-scrollbar-thumb {
 }
 
 .btn:not(.btn-link):hover {
-  background: #ff7a3d;
+  background: linear-gradient(135deg, #fa5252 0%, #ff6b6b 100%);
   color: #ffffff;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 25px rgba(242, 101, 34, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px -8px rgba(255, 107, 107, 0.5);
 }
 
 .btn svg {
@@ -402,22 +408,24 @@ body::-webkit-scrollbar-thumb {
 
 .btn--invert {
   background: transparent;
-  border: 2px solid #1e2756;
-  color: #1e2756;
+  border: 2px solid #1a1f36;
+  color: #1a1f36;
   box-shadow: none;
 }
 
 .btn--invert:hover {
-  background: #1e2756;
+  background: linear-gradient(135deg, #00b4a0 0%, #00d4c4 100%);
   color: #ffffff;
-  border-color: #1e2756;
+  border-color: transparent;
+  box-shadow: 0 8px 30px -8px rgba(0, 180, 160, 0.4);
 }
 
 .h1 {
-  font-weight: 500;
-  font-size: 2vw;
-  line-height: 0.91;
-  color: #1e2756;
+  font-weight: 700;
+  font-size: 2.2vw;
+  line-height: 1.1;
+  color: #1a1f36;
+  letter-spacing: -0.02em;
 }
 
 @media screen and (max-width: 768px) and (orientation: portrait) {
@@ -456,21 +464,23 @@ body::-webkit-scrollbar-thumb {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  border-bottom: 1px solid rgba(30, 39, 86, 0.1);
+  border-bottom: none;
   height: 4.63542vw;
   left: 0;
   position: fixed;
   top: 0;
   z-index: 2;
-  background: #1e2756;
+  background: linear-gradient(135deg, #1a1f36 0%, #2d3250 100%);
+  box-shadow: 0 4px 20px -4px rgba(26, 31, 54, 0.15);
 }
 
 @media screen and (max-width: 768px) and (orientation: portrait) {
   .header {
     height: 18.66667vw;
-    background: #1e2756;
+    background: linear-gradient(135deg, #1a1f36 0%, #2d3250 100%);
     border-bottom: none;
     z-index: 100;
+    box-shadow: 0 4px 20px -4px rgba(26, 31, 54, 0.15);
   }
 }
 
@@ -633,8 +643,8 @@ body::-webkit-scrollbar-thumb {
 }
 
 .header__menu li.active a {
-  color: #f26522;
-  font-weight: bold;
+  color: #00d4c4;
+  font-weight: 600;
   font-size: 1.1em;
 }
 
@@ -721,7 +731,8 @@ body::-webkit-scrollbar-thumb {
 .sticky-title .number,
 .sticky-title .title {
   display: block;
-  color: #1e2756;
+  color: #1a1f36;
+  font-weight: 600;
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
 }
@@ -785,8 +796,8 @@ body::-webkit-scrollbar-thumb {
 }
 
 .page-title {
-  background: #f8fafc;
-  border-right: 1px solid rgba(30, 39, 86, 0.1);
+  background: #ffffff;
+  border-right: 1px solid #e8eaed;
 }
 
 @media screen and (max-width: 768px) and (orientation: portrait) {
@@ -1188,7 +1199,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .home-page .content__subtitle span {
-  color: #f26522;
+  color: #00b4a0;
 }
 
 .home-page .content__awards {
@@ -1381,7 +1392,7 @@ body::-webkit-scrollbar-thumb {
 .home-page .content__brief-text label,
 .home-page .content__brief-text span,
 .home-page .content__brief-text a {
-  color: #f26522;
+  color: #00b4a0;
 }
 
 .home-page .content__form {
@@ -1615,7 +1626,7 @@ body::-webkit-scrollbar-thumb {
   top: 0;
   bottom: 0;
   left: 0;
-  background: #f26522;
+  background: #00b4a0;
   border-radius: 999px;
   transition: transform 500ms ease;
 }
@@ -1771,7 +1782,7 @@ body::-webkit-scrollbar-thumb {
 .home__circle--right {
   z-index: 3;
   right: 250%;
-  background: #f26522;
+  background: #00b4a0;
   scale: 0.4;
   -webkit-transform: translateY(-50%) translateX(95%) scale(0.6);
   transform: translateY(-50%) translateX(95%) scale(0.6);
@@ -1873,7 +1884,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .projects__block h2 {
-  color: #f26522;
+  color: #00b4a0;
   font-size: 28px;
   font-weight: bold;
   margin-bottom: 20px;
@@ -1987,7 +1998,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .news__block h2 {
-  color: #f26522;
+  color: #00b4a0;
   font-size: 28px;
   font-weight: bold;
   margin-bottom: 20px;
@@ -2057,8 +2068,8 @@ body::-webkit-scrollbar-thumb {
 /*# sourceMappingURL=maps/main.css.map */
 
 .register-btn {
-  background: #f26522;
-  border: 2px solid #f26522;
+  background: #00b4a0;
+  border: 2px solid #00b4a0;
   padding: 10px 20px;
   border-radius: 5px;
   font-size: 18px;
@@ -2075,7 +2086,7 @@ body::-webkit-scrollbar-thumb {
 
 .login-btn {
   background: transparent;
-  border: 2px solid #f26522;
+  border: 2px solid #00b4a0;
   padding: 10px 20px;
   border-radius: 5px;
   margin-left: 10px;
@@ -2109,7 +2120,7 @@ body::-webkit-scrollbar-thumb {
 .login-modal__title {
   font-size: 24px;
   font-weight: bold;
-  color: #1e2756;
+  color: #1a1f36;
   margin-bottom: 10px;
 }
 
