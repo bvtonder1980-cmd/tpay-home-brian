@@ -95,12 +95,12 @@ export default function Intro({ showLogin, setShowLogin, onRegisterClick, loginM
                 </div>
               </div>
               <div className="content__btn-block">
-                <a className="register-btn" data-link="6" onClick={onRegisterClick}>
-                  Register
-                </a>
-                &nbsp;
                 <a className="login-btn" data-link="6" onClick={() => setShowLogin(true)}>
                   Login
+                </a>
+                &nbsp;
+                <a className="register-btn" data-link="6" onClick={onRegisterClick}>
+                  Register
                 </a>
               </div>
               <div className="home__numbers">
