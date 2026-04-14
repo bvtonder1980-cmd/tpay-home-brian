@@ -121,9 +121,23 @@ export default function Intro({ showLogin, setShowLogin, onRegisterClick, loginM
               <div className={`hero-section ${isVisible ? 'visible' : ''}`}>
                 {/* Main Hero Content */}
                 <div className="hero-main">
-                  <div className="hero-badge">
-                    <span className="badge-dot"></span>
-                    Built for Travel
+                  <div className="hero-badges">
+                    <div className="hero-badge">
+                      <span className="badge-dot"></span>
+                      Built for Travel
+                    </div>
+                    <div className="hero-badge">
+                      <span className="badge-dot"></span>
+                      PCI-DSS Compliant
+                    </div>
+                    <div className="hero-badge">
+                      <span className="badge-dot"></span>
+                      Multi-Currency
+                    </div>
+                    <div className="hero-badge">
+                      <span className="badge-dot"></span>
+                      24/7 Support
+                    </div>
                   </div>
                   
                   <h2 className="hero-title">

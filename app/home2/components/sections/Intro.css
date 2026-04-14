@@ -40,6 +40,14 @@
   transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s;
 }
 
+/* Badges Container */
+.hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+}
+
 /* Badge */
 .hero-badge {
   display: inline-flex;
@@ -50,13 +58,19 @@
   -webkit-backdrop-filter: blur(10px);
   padding: 8px 16px;
   border-radius: 50px;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 600;
   color: #1E3A5F;
-  margin-bottom: 1.5rem;
   border: 1px solid rgba(74, 144, 217, 0.2);
   box-shadow: 0 4px 20px rgba(30, 58, 95, 0.08);
   width: fit-content;
+  transition: all 0.3s ease;
+}
+
+.hero-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(30, 58, 95, 0.12);
+  border-color: rgba(74, 144, 217, 0.4);
 }
 
 .badge-dot {
