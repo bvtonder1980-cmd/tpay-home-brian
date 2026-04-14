@@ -2,7 +2,7 @@ import { Col, Row } from "react-bootstrap"
 
 export default function About() {
     return (
-        <div className="scrollable">
+        <div className="scrollable dark-theme">
             <section className="projects">
               <div className="sticky-title">
                 <ul>

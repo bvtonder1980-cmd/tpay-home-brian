@@ -895,6 +895,56 @@ body::-webkit-scrollbar-thumb:hover {
   flex-shrink: 0;
 }
 
+/* Dark theme for travelPay page */
+.home-page .scrollable.dark-theme .content {
+  background: linear-gradient(135deg, #1E3A5F 0%, #2D4A6F 25%, #3D5A7F 55%, #4A6A8F 100%);
+}
+
+.home-page .scrollable.dark-theme .content__left,
+.home-page .scrollable.dark-theme .content__right {
+  color: #ffffff;
+}
+
+.home-page .scrollable.dark-theme .h1,
+.home-page .scrollable.dark-theme h2 {
+  color: #ffffff;
+}
+
+.home-page .scrollable.dark-theme p,
+.home-page .scrollable.dark-theme li {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.home-page .scrollable.dark-theme .content__menu a {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.home-page .scrollable.dark-theme .content__menu li.active a {
+  color: #F5C4B0;
+}
+
+.home-page .scrollable.dark-theme .content__menu a:hover {
+  color: #ffffff;
+}
+
+.home-page .scrollable.dark-theme .sticky-title {
+  background: linear-gradient(135deg, #1E3A5F 0%, #2D4A6F 100%);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.home-page .scrollable.dark-theme .sticky-title .number,
+.home-page .scrollable.dark-theme .sticky-title .title {
+  color: #ffffff;
+}
+
+.home-page .scrollable.dark-theme .content__left {
+  border-right-color: rgba(255, 255, 255, 0.15);
+}
+
+.home-page .scrollable.dark-theme .content__right {
+  border-left-color: rgba(255, 255, 255, 0.15);
+}
+
 @media screen and (max-width: 768px) and (orientation: portrait) {
   .home-page .scrollable {
     display: block;
