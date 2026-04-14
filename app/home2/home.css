@@ -484,23 +484,25 @@ body::-webkit-scrollbar-thumb:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  border-bottom: none;
+  border-bottom: 1px solid rgba(30, 58, 95, 0.1);
   height: 4.63542vw;
   left: 0;
   position: fixed;
   top: 0;
   z-index: 2;
-  background: linear-gradient(135deg, #1E3A5F 0%, #2D4A6F 100%);
-  box-shadow: 0 4px 24px -4px rgba(30, 58, 95, 0.2);
+  background: transparent;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 @media screen and (max-width: 768px) and (orientation: portrait) {
   .header {
     height: 18.66667vw;
-    background: linear-gradient(135deg, #1E3A5F 0%, #2D4A6F 100%);
-    border-bottom: none;
+    background: transparent;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(30, 58, 95, 0.1);
     z-index: 100;
-    box-shadow: 0 4px 24px -4px rgba(30, 58, 95, 0.2);
   }
 }
 
@@ -660,10 +662,12 @@ body::-webkit-scrollbar-thumb:hover {
   line-height: 140%;
   display: block;
   transition: all 0.3s ease;
+  color: #1E3A5F;
+  font-weight: 500;
 }
 
 .header__menu li.active a {
-  color: #F5A68C;
+  color: #4A90D9;
   font-weight: 600;
   font-size: 1.1em;
 }
