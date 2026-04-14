@@ -534,6 +534,81 @@ function initHomeScroll(): Cleanup {
   };
 }
 
+function initGradientScroll(): Cleanup {
+  const homePage = qs<HTMLElement>('.home-page');
+  const content = qs<HTMLElement>('.home-page .content');
+  if (!homePage || !content) return () => {};
+
+  // Define gradient colors for each section (seamless transition)
+  // Each section starts with the previous section's end color
+  const gradientStops = [
+    { start: '#E8F4FC', mid: '#D4E8F5', end: '#FFE5D8' },      // Section 1: Blue to Peach
+    { start: '#FFE5D8', mid: '#F5D4C8', end: '#F5A68C' },      // Section 2: Peach to Coral
+    { start: '#F5A68C', mid: '#E8B8A8', end: '#D4E8F5' },      // Section 3: Coral to Blue
+    { start: '#D4E8F5', mid: '#B8D4E8', end: '#FFE5D8' },      // Section 4: Blue to Peach
+    { start: '#FFE5D8', mid: '#F5D4C8', end: '#E8F4FC' },      // Section 5: Peach to Blue
+    { start: '#E8F4FC', mid: '#D4E8F5', end: '#F5A68C' },      // Section 6: Blue to Coral
+    { start: '#F5A68C', mid: '#FFE5D8', end: '#E8F4FC' },      // Section 7: Coral to Blue
+  ];
+
+  const sections = qsa<HTMLElement>('.scrollable');
+  const numSections = sections.length;
+
+  const updateGradient = () => {
+    const scrollProgress = getScrolledPercentage() / 100;
+    const sectionIndex = Math.min(Math.floor(scrollProgress * numSections), numSections - 1);
+    const sectionProgress = (scrollProgress * numSections) % 1;
+    
+    const currentGradient = gradientStops[sectionIndex] || gradientStops[0];
+    const nextGradient = gradientStops[(sectionIndex + 1) % gradientStops.length];
+    
+    // Interpolate rotation angle based on scroll (0 to 360 degrees across all sections)
+    const rotationAngle = 135 + (scrollProgress * 180);
+    
+    // Interpolate colors between current and next section
+    const interpolateColor = (color1: string, color2: string, progress: number) => {
+      const hex1 = color1.replace('#', '');
+      const hex2 = color2.replace('#', '');
+      const r1 = parseInt(hex1.substring(0, 2), 16);
+      const g1 = parseInt(hex1.substring(2, 4), 16);
+      const b1 = parseInt(hex1.substring(4, 6), 16);
+      const r2 = parseInt(hex2.substring(0, 2), 16);
+      const g2 = parseInt(hex2.substring(2, 4), 16);
+      const b2 = parseInt(hex2.substring(4, 6), 16);
+      const r = Math.round(r1 + (r2 - r1) * progress);
+      const g = Math.round(g1 + (g2 - g1) * progress);
+      const b = Math.round(b1 + (b2 - b1) * progress);
+      return `rgb(${r}, ${g}, ${b})`;
+    };
+    
+    const startColor = interpolateColor(currentGradient.start, nextGradient.start, sectionProgress);
+    const midColor = interpolateColor(currentGradient.mid, nextGradient.mid, sectionProgress);
+    const endColor = interpolateColor(currentGradient.end, nextGradient.end, sectionProgress);
+    
+    const gradientString = `linear-gradient(${rotationAngle}deg, ${startColor} 0%, ${midColor} 50%, ${endColor} 100%)`;
+    
+    // Apply to all content sections
+    const allContents = qsa<HTMLElement>('.home-page .content');
+    allContents.forEach((el) => {
+      el.style.background = gradientString;
+    });
+  };
+
+  // Initial update
+  updateGradient();
+
+  // Update on scroll
+  const onScroll = () => {
+    requestAnimationFrame(updateGradient);
+  };
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  return () => {
+    window.removeEventListener('scroll', onScroll);
+  };
+}
+
 export function initHome2Scripts(): Cleanup {
   const cleanups: Cleanup[] = [];
 
@@ -554,6 +629,7 @@ export function initHome2Scripts(): Cleanup {
   cleanups.push(initContactForm());
   cleanups.push(initReviewsSlider());
   cleanups.push(initHomeScroll());
+  cleanups.push(initGradientScroll());
 
   return () => cleanups.forEach((c) => c());
 }

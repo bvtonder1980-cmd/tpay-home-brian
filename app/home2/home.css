@@ -908,7 +908,8 @@ body::-webkit-scrollbar-thumb:hover {
   display: -ms-flexbox;
   display: flex;
   position: relative;
-  background: linear-gradient(135deg, #E8F4FC 0%, #D4E8F5 25%, #FFE5D8 60%, rgba(245, 166, 140, 0.35) 100%);
+  background: linear-gradient(135deg, #E8F4FC 0%, #D4E8F5 50%, #FFE5D8 100%);
+  transition: background 0.15s ease-out;
 }
 
 @media screen and (max-width: 768px) and (orientation: portrait) {
