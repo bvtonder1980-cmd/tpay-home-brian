@@ -821,8 +821,8 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .page-title {
-  background: #ffffff;
-  border-right: 1px solid #e8eaed;
+  background: transparent;
+  border-right: 1px solid rgba(30, 58, 95, 0.15);
 }
 
 @media screen and (max-width: 768px) and (orientation: portrait) {
