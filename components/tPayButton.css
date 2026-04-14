@@ -1,5 +1,5 @@
 .tpay-button {
-    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    background: linear-gradient(135deg, #4facfe 0%, #00d4ff 100%);
     color: #fff;
     border: none;
     font-size: 1.2rem;
@@ -10,8 +10,8 @@
 }
 
 .tpay-button:hover {
-    background: linear-gradient(135deg, #ff6b6b 0%, #ffa726 100%);
+    background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 50%, #ffa94d 100%);
     color: #fff;
     transform: translateY(-2px);
-    box-shadow: 0 6px 25px rgba(255, 107, 107, 0.5);
+    box-shadow: 0 6px 25px rgba(255, 140, 66, 0.5);
 }

@@ -1,26 +1,30 @@
 @import "tailwindcss";
 
 :root {
-  /* Pastel vivid blues and sunset oranges palette */
-  --background: linear-gradient(135deg, #1a1f3c 0%, #2d1f47 50%, #3d2438 100%);
+  /* Deep blue and sunset orange palette - NO purple */
+  --background: linear-gradient(135deg, #0a1628 0%, #0f2847 50%, #1a3a5c 100%);
   --foreground: #f8fafc;
   
-  /* Primary colors */
+  /* Primary colors - vivid blues */
   --blue-vivid: #4facfe;
-  --blue-pastel: #00f2fe;
-  --orange-sunset: #ff6b6b;
-  --orange-warm: #ffa726;
-  --pink-sunset: #ff9a9e;
+  --blue-pastel: #00d4ff;
+  --blue-deep: #0066cc;
+  
+  /* Sunset orange spectrum */
+  --orange-sunset: #ff6b35;
+  --orange-warm: #ff8c42;
+  --orange-glow: #ffa94d;
+  --coral-accent: #ff7b54;
   
   /* Glass effect colors */
-  --glass-bg: rgba(255, 255, 255, 0.08);
-  --glass-border: rgba(255, 255, 255, 0.15);
-  --glass-shadow: rgba(0, 0, 0, 0.25);
+  --glass-bg: rgba(255, 255, 255, 0.06);
+  --glass-border: rgba(79, 172, 254, 0.2);
+  --glass-shadow: rgba(0, 0, 0, 0.3);
   
-  /* Accent gradients */
-  --gradient-sunset: linear-gradient(135deg, #ff6b6b 0%, #ffa726 50%, #ffeb3b 100%);
-  --gradient-blue: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-  --gradient-mixed: linear-gradient(135deg, #ff6b6b 0%, #4facfe 100%);
+  /* Accent gradients - more sunset orange shading */
+  --gradient-sunset: linear-gradient(135deg, #ff6b35 0%, #ff8c42 50%, #ffa94d 100%);
+  --gradient-blue: linear-gradient(135deg, #4facfe 0%, #00d4ff 100%);
+  --gradient-mixed: linear-gradient(135deg, #ff6b35 0%, #ff8c42 50%, #4facfe 100%);
 }
 
 @theme inline {
@@ -80,7 +84,8 @@ body {
 }
 
 .btn-primary:hover {
+  background: var(--gradient-sunset);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(79, 172, 254, 0.6);
+  box-shadow: 0 6px 20px rgba(255, 140, 66, 0.5);
 }
 
