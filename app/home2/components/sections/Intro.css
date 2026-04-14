@@ -204,10 +204,13 @@
 
 /* Center text styling */
 .hero-center-text {
-  position: relative;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 10;
   text-align: center;
-  padding: 2rem;
+  padding: 2rem 3rem;
   background: rgba(255, 255, 255, 0.95);
   border-radius: 20px;
   box-shadow: 0 20px 60px rgba(30, 39, 86, 0.15);
