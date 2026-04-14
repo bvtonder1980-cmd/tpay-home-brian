@@ -1,8 +1,26 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0a0a0a;
-  --foreground: #ededed;
+  /* Pastel vivid blues and sunset oranges palette */
+  --background: linear-gradient(135deg, #1a1f3c 0%, #2d1f47 50%, #3d2438 100%);
+  --foreground: #f8fafc;
+  
+  /* Primary colors */
+  --blue-vivid: #4facfe;
+  --blue-pastel: #00f2fe;
+  --orange-sunset: #ff6b6b;
+  --orange-warm: #ffa726;
+  --pink-sunset: #ff9a9e;
+  
+  /* Glass effect colors */
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.15);
+  --glass-shadow: rgba(0, 0, 0, 0.25);
+  
+  /* Accent gradients */
+  --gradient-sunset: linear-gradient(135deg, #ff6b6b 0%, #ffa726 50%, #ffeb3b 100%);
+  --gradient-blue: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  --gradient-mixed: linear-gradient(135deg, #ff6b6b 0%, #4facfe 100%);
 }
 
 @theme inline {
@@ -20,8 +38,49 @@ body {
   font-size-adjust: 0.5;
 }
 
+/* Modern glass card effect */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px var(--glass-shadow);
+}
+
+/* Glowing button effect */
+.btn-glow {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn-glow::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: var(--gradient-mixed);
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.btn-glow:hover::before {
+  opacity: 1;
+}
+
 .btn-primary {
-  background-color: rgb(8, 136, 205);
-  border-color:rgb(8, 136, 205);
+  background: var(--gradient-blue);
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(79, 172, 254, 0.4);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(79, 172, 254, 0.6);
 }
 
