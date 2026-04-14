@@ -927,13 +927,16 @@ body::-webkit-scrollbar-thumb:hover {
   color: #ffffff;
 }
 
-.home-page .scrollable.dark-theme .sticky-title {
+.home-page .scrollable.dark-theme .sticky-title,
+.home-page .scrollable.dark-theme .page-title {
   background: linear-gradient(135deg, #1E3A5F 0%, #2D4A6F 100%);
   border-color: rgba(255, 255, 255, 0.1);
 }
 
 .home-page .scrollable.dark-theme .sticky-title .number,
-.home-page .scrollable.dark-theme .sticky-title .title {
+.home-page .scrollable.dark-theme .sticky-title .title,
+.home-page .scrollable.dark-theme .page-title .number,
+.home-page .scrollable.dark-theme .page-title .title {
   color: #ffffff;
 }
 
