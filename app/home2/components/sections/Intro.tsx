@@ -1,6 +1,16 @@
 'use client';
 import { useEffect, useState } from "react";
 import { Alert } from "react-bootstrap";
+import "./Intro.css";
+
+const paymentLogos = [
+  { src: "/images/home_brand_blocks/visa.jpg", alt: "Visa" },
+  { src: "/images/home_brand_blocks/mastercard.jpg", alt: "Mastercard" },
+  { src: "/images/home_brand_blocks/amex.jpg", alt: "American Express" },
+  { src: "/images/home_brand_blocks/diners.jpg", alt: "Diners Club" },
+  { src: "/images/home_brand_blocks/applepay.jpg", alt: "Apple Pay" },
+  { src: "/images/home_brand_blocks/googlepay.jpg", alt: "Google Pay" },
+];
 
 export default function Intro({ showLogin, setShowLogin, onRegisterClick, loginMessage, setLoginMessage, loginError, setLoginError }: { showLogin: boolean, setShowLogin: (show: boolean) => void, onRegisterClick: () => void, loginMessage: string, setLoginMessage: (message: string) => void, loginError: string, setLoginError: (error: string) => void }) {
     const buzzWords = ["Secure", "Reliable", "Fast", "Seamless"];
@@ -88,12 +98,23 @@ export default function Intro({ showLogin, setShowLogin, onRegisterClick, loginM
               </div>
             </div>
             <div className="content__right">
-              <div className="home__circles">
-                <div className="home__circles-lines" style={{display: 'none'}}></div>
-                <div className="home__circle home__circle--left"><img className="home__circle-img" src="img/image-1.jpg" alt=""/></div>
-                <div className="home__circle home__circle--right">
-                  <div className="home__circle-text buzz-word-container">
-                  {buzzWords.map((word, index) => (
+              <div className="hero-animation-container">
+                {/* Animated floating logos */}
+                <div className="floating-logos">
+                  {paymentLogos.map((logo, index) => (
+                    <div 
+                      key={logo.alt} 
+                      className={`floating-logo floating-logo-${index + 1}`}
+                    >
+                      <img src={logo.src} alt={logo.alt} />
+                    </div>
+                  ))}
+                </div>
+                
+                {/* Central buzzword display */}
+                <div className="hero-center-text">
+                  <div className="buzz-word-container">
+                    {buzzWords.map((word, index) => (
                       <h1
                         key={index}
                         style={{ display: currentBuzzWord === word ? 'block' : 'none' }}
@@ -103,6 +124,7 @@ export default function Intro({ showLogin, setShowLogin, onRegisterClick, loginM
                       </h1>
                     ))}
                   </div>
+                  <p className="hero-subtext">Payment Solutions</p>
                 </div>
               </div>
             </div>

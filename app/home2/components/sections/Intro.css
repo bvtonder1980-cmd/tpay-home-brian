@@ -1,0 +1,287 @@
+.hero-animation-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.floating-logos {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.floating-logo {
+  position: absolute;
+  width: 80px;
+  height: 50px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(30, 39, 86, 0.15);
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  transition: transform 0.3s ease;
+}
+
+.floating-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Position and animate each logo differently */
+.floating-logo-1 {
+  top: 10%;
+  left: 15%;
+  animation: float1 6s ease-in-out infinite;
+}
+
+.floating-logo-2 {
+  top: 5%;
+  right: 20%;
+  animation: float2 7s ease-in-out infinite;
+  animation-delay: -1s;
+}
+
+.floating-logo-3 {
+  top: 35%;
+  left: 5%;
+  animation: float3 5s ease-in-out infinite;
+  animation-delay: -2s;
+}
+
+.floating-logo-4 {
+  top: 30%;
+  right: 8%;
+  animation: float4 6.5s ease-in-out infinite;
+  animation-delay: -0.5s;
+}
+
+.floating-logo-5 {
+  bottom: 25%;
+  left: 12%;
+  animation: float5 5.5s ease-in-out infinite;
+  animation-delay: -3s;
+}
+
+.floating-logo-6 {
+  bottom: 15%;
+  right: 15%;
+  animation: float6 7.5s ease-in-out infinite;
+  animation-delay: -1.5s;
+}
+
+/* Floating animations with different paths */
+@keyframes float1 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(15px, -20px) rotate(3deg);
+  }
+  50% {
+    transform: translate(5px, -35px) rotate(-2deg);
+  }
+  75% {
+    transform: translate(-10px, -15px) rotate(2deg);
+  }
+}
+
+@keyframes float2 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(-20px, 15px) rotate(-3deg);
+  }
+  50% {
+    transform: translate(-10px, 30px) rotate(2deg);
+  }
+  75% {
+    transform: translate(10px, 10px) rotate(-2deg);
+  }
+}
+
+@keyframes float3 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  33% {
+    transform: translate(25px, -10px) rotate(4deg);
+  }
+  66% {
+    transform: translate(10px, 20px) rotate(-3deg);
+  }
+}
+
+@keyframes float4 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  20% {
+    transform: translate(-15px, -25px) rotate(-2deg);
+  }
+  40% {
+    transform: translate(-30px, -10px) rotate(3deg);
+  }
+  60% {
+    transform: translate(-20px, 15px) rotate(-2deg);
+  }
+  80% {
+    transform: translate(-5px, 5px) rotate(1deg);
+  }
+}
+
+@keyframes float5 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(20px, 15px) rotate(3deg);
+  }
+  50% {
+    transform: translate(35px, -5px) rotate(-2deg);
+  }
+  75% {
+    transform: translate(15px, -20px) rotate(2deg);
+  }
+}
+
+@keyframes float6 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  30% {
+    transform: translate(-25px, -20px) rotate(-4deg);
+  }
+  60% {
+    transform: translate(-10px, 10px) rotate(3deg);
+  }
+}
+
+/* Pulse animation for logos */
+.floating-logo::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(242, 101, 34, 0.3), rgba(30, 39, 86, 0.2));
+  opacity: 0;
+  animation: pulse 3s ease-in-out infinite;
+  z-index: -1;
+}
+
+.floating-logo-1::after { animation-delay: 0s; }
+.floating-logo-2::after { animation-delay: 0.5s; }
+.floating-logo-3::after { animation-delay: 1s; }
+.floating-logo-4::after { animation-delay: 1.5s; }
+.floating-logo-5::after { animation-delay: 2s; }
+.floating-logo-6::after { animation-delay: 2.5s; }
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.05);
+  }
+}
+
+/* Center text styling */
+.hero-center-text {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(30, 39, 86, 0.15);
+  border: 1px solid rgba(30, 39, 86, 0.08);
+}
+
+.hero-center-text .buzz-word-container {
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-center-text .buzz-word {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1e2756;
+  margin: 0;
+  background: linear-gradient(135deg, #1e2756 0%, #f26522 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subtext {
+  font-size: 1rem;
+  color: #64748b;
+  margin-top: 0.5rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .floating-logo {
+    width: 60px;
+    height: 38px;
+  }
+  
+  .hero-center-text .buzz-word {
+    font-size: 1.75rem;
+  }
+  
+  .hero-subtext {
+    font-size: 0.875rem;
+  }
+  
+  .floating-logo-1 { top: 8%; left: 5%; }
+  .floating-logo-2 { top: 5%; right: 5%; }
+  .floating-logo-3 { top: 40%; left: 2%; }
+  .floating-logo-4 { top: 35%; right: 2%; }
+  .floating-logo-5 { bottom: 30%; left: 5%; }
+  .floating-logo-6 { bottom: 20%; right: 5%; }
+}
+
+/* Typing animations for buzzwords */
+.buzz-word.typing-in {
+  animation: typeIn 0.8s ease-out forwards;
+}
+
+.buzz-word.backspacing-out {
+  animation: typeOut 0.6s ease-in forwards;
+}
+
+@keyframes typeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes typeOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
