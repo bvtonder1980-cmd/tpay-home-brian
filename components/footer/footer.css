@@ -1,0 +1,23 @@
+footer {
+    background: #14141400;
+    min-height: 300px;
+    bottom: 0;
+    position: relative;
+    z-index: 2;
+    width: calc(100vw-40px);
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    color:rgb(172, 172, 172) !important;
+}
+
+footer a, footer a:visited {
+    color:rgb(172, 172, 172);
+    text-decoration: none;
+}
+
+.footerLinks ul li a {
+    color:rgb(64, 64, 64);
+    text-decoration: none;
+}

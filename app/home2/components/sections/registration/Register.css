@@ -1,0 +1,210 @@
+
+
+.regFormLabel {
+    margin-top:20px;
+}
+
+.sectHead {
+    margin-bottom:10px;
+    margin-top:20px;
+}
+
+.css-1fb7els-MuiPickersSectionList-root-MuiPickersInputBase-sectionsContainer-MuiPickersOutlinedInput-sectionsContainer, .css-1y4gq5a-MuiPickersSectionList-root-MuiPickersInputBase-sectionsContainer-MuiPickersOutlinedInput-sectionsContainer {
+    padding: 8.5px 0 !important;
+    
+}
+
+.css-vycme6-MuiPickersInputBase-root-MuiPickersOutlinedInput-root.Mui-focused:not(.Mui-error) .MuiPickersOutlinedInput-notchedOutline {
+
+    border-color: #86b7fe !important;
+    outline: 0;
+    box-shadow: 0 0 0 .25rem rgba(13, 110, 253, .25);
+}
+
+.css-lqwr9g-MuiPickersOutlinedInput-notchedOutline{
+    border: var(--bs-border-width) solid var(--bs-border-color) !important;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.buttons-container {
+    margin-top:20px;
+}
+
+.MuiStepLabel-label {
+    font-size:0.8em !important;
+}
+
+.MuiStepLabel-label {
+    font-size:0.8em !important;
+}
+
+/* Fade Transition */
+.fade-enter {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.fade-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 300ms ease-in-out, transform 300ms ease-in-out;
+}
+
+.fade-exit {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-exit-active {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 300ms ease-in-out, transform 300ms ease-in-out;
+}
+
+.stepGif {
+    filter: hue-rotate(-330deg);
+    width: 70%;
+    margin: 20px;
+    min-width: 100px;
+    margin-top: 130px;
+    max-width: 180px;
+}
+
+.upperStepGif {
+    filter: hue-rotate(-330deg);
+    width: 10%;
+    margin: 20px;
+    margin-top: 15px; 
+    min-width: 100px;
+   
+}
+
+img {
+    user-select: none;
+    pointer-events: none;
+}
+
+input[type="radio"] {
+    background-color: #fff !important;
+}
+
+.card {
+    user-select: none;
+    background-color: #efeeee;
+}
+
+.MuiStepLabel-iconContainer {
+    cursor:pointer;
+}
+
+
+.text-danger {
+    color:red;
+}
+
+.text-success {
+    color:green;
+}
+
+.passwordChecklist {
+    margin:10px;
+    margin-top:20px;
+    font-size: 12px;
+}
+
+.passwordChecklist ul {
+    list-style: none;
+    padding-left:0px;
+}
+
+.PhoneInputInput {
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-clip: padding-box;
+    border: 1px solid #dfe0e0;
+    border-radius: 8px;
+    background: white;
+    color:black;
+}
+
+.react-datepicker-wrapper {
+    width: 100%;
+}
+
+.react-datepicker-wrapper input {
+    width: 100%;
+    padding: .375rem .75rem;
+}
+
+.error-row td {
+    background-color: #ffc5c5;
+    color: #ad0516;
+    font-weight: bold;
+}
+
+@media (max-width: 800px) {
+    .MuiStepLabel-label {
+        font-size:0.7em !important;
+    }
+}
+
+@media (max-width: 992px) {
+    .stepGif {
+        margin-top:10px;
+        width: 25%;
+        display: none;
+    }
+}
+
+/* OTP Input Styles */
+.otp-input-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.otp-input-box {
+    width: 45px;
+    height: 45px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.3s ease;
+    background-color: #fff;
+}
+
+.otp-input-box:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    transform: scale(1.05);
+}
+
+.otp-input-box:invalid {
+    border-color: #dc3545;
+}
+
+
+/* Responsive OTP inputs */
+@media (max-width: 480px) {
+    .otp-input-box {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+    
+    .otp-input-container {
+        gap: 8px;
+    }
+}
+

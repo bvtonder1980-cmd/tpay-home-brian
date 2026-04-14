@@ -1,0 +1,14 @@
+.tpay-button {
+    background: #0071b8;
+    color: #fff;
+    border-width: 10px;
+    font-size: 1.2rem;
+    border-color: #0071b8;
+    transition: all 0.3s ease;
+}
+
+.tpay-button:hover {
+    background: #003f66;
+    border-color: #003f66;
+    color:#fff;
+}
