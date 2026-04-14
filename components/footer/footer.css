@@ -1,5 +1,5 @@
 footer {
-    background: linear-gradient(135deg, #1a1f36 0%, #2d3250 100%);
+    background: linear-gradient(135deg, #1E3A5F 0%, #2D4A6F 100%);
     border-top: none;
     min-height: 300px;
     bottom: 0;
@@ -14,21 +14,21 @@ footer {
 }
 
 footer a, footer a:visited {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.85);
     text-decoration: none;
     transition: all 0.3s ease;
 }
 
 footer a:hover {
-    color: #00d4c4;
+    color: #F5A68C;
 }
 
 .footerLinks ul li a {
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.75);
     text-decoration: none;
     transition: all 0.3s ease;
 }
 
 .footerLinks ul li a:hover {
-    color: #00d4c4;
+    color: #F5A68C;
 }

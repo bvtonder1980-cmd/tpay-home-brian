@@ -253,8 +253,8 @@ body {
   -o-font-smoothing: antialiased;
   -webkit-locale: auto;
   font-family: "Inter", "Barlow", -apple-system, BlinkMacSystemFont, sans-serif;
-  color: #1a1f36 !important;
-  background: #fafbfc !important;
+  color: #1E3A5F !important;
+  background: #FDF8F5 !important;
   min-height: 100vh;
 }
 
@@ -265,12 +265,12 @@ button {
 
 a {
   text-decoration: none;
-  color: #1a1f36;
-  transition: color 0.2s ease;
+  color: #1E3A5F;
+  transition: color 0.25s ease;
 }
 
 a:hover {
-  color: #00b4a0;
+  color: #4A90D9;
 }
 
 ol,
@@ -297,16 +297,16 @@ img {
 
 body::-webkit-scrollbar {
   width: 8px;
-  background: #f4f5f7;
+  background: #FFE5D8;
 }
 
 body::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #00b4a0 0%, #00d4c4 100%);
+  background: linear-gradient(180deg, #4A90D9 0%, #F5A68C 100%);
   border-radius: 4px;
 }
 
 body::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #009688 0%, #00b4a0 100%);
+  background: linear-gradient(180deg, #3A7BC8 0%, #FF8A65 100%);
 }
 
 .main {
@@ -358,15 +358,15 @@ body::-webkit-scrollbar-thumb:hover {
   cursor: pointer;
   display: inline-block;
   border-radius: 50px;
-  background: linear-gradient(135deg, #ff6b6b 0%, #ff8787 100%);
+  background: linear-gradient(135deg, #4A90D9 0%, #6BA3E0 100%);
   -webkit-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   font-size: 0.9375vw;
   line-height: 140%;
   text-transform: none;
   text-align: center;
-  padding: 0.85vw 2.5vw;
-  box-shadow: 0 8px 30px -8px rgba(255, 107, 107, 0.4);
+  padding: 0.9vw 2.8vw;
+  box-shadow: 0 10px 30px -8px rgba(74, 144, 217, 0.35);
   font-weight: 600;
   letter-spacing: 0.01em;
 }
@@ -380,10 +380,10 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .btn:not(.btn-link):hover {
-  background: linear-gradient(135deg, #fa5252 0%, #ff6b6b 100%);
+  background: linear-gradient(135deg, #3A7BC8 0%, #4A90D9 100%);
   color: #ffffff;
-  transform: translateY(-3px);
-  box-shadow: 0 12px 35px -8px rgba(255, 107, 107, 0.5);
+  transform: translateY(-4px);
+  box-shadow: 0 14px 40px -8px rgba(74, 144, 217, 0.45);
 }
 
 .btn svg {
@@ -408,24 +408,25 @@ body::-webkit-scrollbar-thumb:hover {
 
 .btn--invert {
   background: transparent;
-  border: 2px solid #1a1f36;
-  color: #1a1f36;
+  border: 2px solid #1E3A5F;
+  color: #1E3A5F;
   box-shadow: none;
 }
 
 .btn--invert:hover {
-  background: linear-gradient(135deg, #00b4a0 0%, #00d4c4 100%);
-  color: #ffffff;
+  background: linear-gradient(135deg, #F5A68C 0%, #FF8A65 100%);
+  color: #1E3A5F;
   border-color: transparent;
-  box-shadow: 0 8px 30px -8px rgba(0, 180, 160, 0.4);
+  box-shadow: 0 10px 30px -8px rgba(245, 166, 140, 0.4);
 }
 
 .h1 {
   font-weight: 700;
   font-size: 2.2vw;
-  line-height: 1.1;
-  color: #1a1f36;
+  line-height: 1.15;
+  color: #1E3A5F;
   letter-spacing: -0.02em;
+  text-wrap: balance;
 }
 
 @media screen and (max-width: 768px) and (orientation: portrait) {
@@ -470,17 +471,17 @@ body::-webkit-scrollbar-thumb:hover {
   position: fixed;
   top: 0;
   z-index: 2;
-  background: linear-gradient(135deg, #1a1f36 0%, #2d3250 100%);
-  box-shadow: 0 4px 20px -4px rgba(26, 31, 54, 0.15);
+  background: linear-gradient(135deg, #1E3A5F 0%, #2D4A6F 100%);
+  box-shadow: 0 4px 24px -4px rgba(30, 58, 95, 0.2);
 }
 
 @media screen and (max-width: 768px) and (orientation: portrait) {
   .header {
     height: 18.66667vw;
-    background: linear-gradient(135deg, #1a1f36 0%, #2d3250 100%);
+    background: linear-gradient(135deg, #1E3A5F 0%, #2D4A6F 100%);
     border-bottom: none;
     z-index: 100;
-    box-shadow: 0 4px 20px -4px rgba(26, 31, 54, 0.15);
+    box-shadow: 0 4px 24px -4px rgba(30, 58, 95, 0.2);
   }
 }
 
@@ -643,7 +644,7 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .header__menu li.active a {
-  color: #00d4c4;
+  color: #F5A68C;
   font-weight: 600;
   font-size: 1.1em;
 }
@@ -731,7 +732,7 @@ body::-webkit-scrollbar-thumb:hover {
 .sticky-title .number,
 .sticky-title .title {
   display: block;
-  color: #1a1f36;
+  color: #1E3A5F;
   font-weight: 600;
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
@@ -1199,7 +1200,7 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .home-page .content__subtitle span {
-  color: #00b4a0;
+  color: #4A90D9;
 }
 
 .home-page .content__awards {
@@ -1392,7 +1393,7 @@ body::-webkit-scrollbar-thumb:hover {
 .home-page .content__brief-text label,
 .home-page .content__brief-text span,
 .home-page .content__brief-text a {
-  color: #00b4a0;
+  color: #4A90D9;
 }
 
 .home-page .content__form {
@@ -1626,7 +1627,7 @@ body::-webkit-scrollbar-thumb:hover {
   top: 0;
   bottom: 0;
   left: 0;
-  background: #00b4a0;
+  background: #4A90D9;
   border-radius: 999px;
   transition: transform 500ms ease;
 }
@@ -1782,7 +1783,7 @@ body::-webkit-scrollbar-thumb:hover {
 .home__circle--right {
   z-index: 3;
   right: 250%;
-  background: #00b4a0;
+  background: #4A90D9;
   scale: 0.4;
   -webkit-transform: translateY(-50%) translateX(95%) scale(0.6);
   transform: translateY(-50%) translateX(95%) scale(0.6);
@@ -1884,7 +1885,7 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .projects__block h2 {
-  color: #00b4a0;
+  color: #4A90D9;
   font-size: 28px;
   font-weight: bold;
   margin-bottom: 20px;
@@ -1998,7 +1999,7 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .news__block h2 {
-  color: #00b4a0;
+  color: #4A90D9;
   font-size: 28px;
   font-weight: bold;
   margin-bottom: 20px;
@@ -2068,8 +2069,8 @@ body::-webkit-scrollbar-thumb:hover {
 /*# sourceMappingURL=maps/main.css.map */
 
 .register-btn {
-  background: #00b4a0;
-  border: 2px solid #00b4a0;
+  background: #4A90D9;
+  border: 2px solid #4A90D9;
   padding: 10px 20px;
   border-radius: 5px;
   font-size: 18px;
@@ -2086,7 +2087,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 .login-btn {
   background: transparent;
-  border: 2px solid #00b4a0;
+  border: 2px solid #4A90D9;
   padding: 10px 20px;
   border-radius: 5px;
   margin-left: 10px;
@@ -2120,7 +2121,7 @@ body::-webkit-scrollbar-thumb:hover {
 .login-modal__title {
   font-size: 24px;
   font-weight: bold;
-  color: #1a1f36;
+  color: #1E3A5F;
   margin-bottom: 10px;
 }
 
