@@ -2115,7 +2115,7 @@ body::-webkit-scrollbar-thumb:hover {
   transition: all 0.3s ease;
   width: 120px;
   text-align: center;
-  color: #fff;
+  color: #4A90D9;
 }
 
 .login-btn:hover {
