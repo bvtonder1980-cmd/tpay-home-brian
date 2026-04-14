@@ -908,6 +908,7 @@ body::-webkit-scrollbar-thumb:hover {
   display: -ms-flexbox;
   display: flex;
   position: relative;
+  background: linear-gradient(135deg, #E8F4FC 0%, #D4E8F5 25%, #FFE5D8 60%, rgba(245, 166, 140, 0.35) 100%);
 }
 
 @media screen and (max-width: 768px) and (orientation: portrait) {
@@ -952,7 +953,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 .home-page .content__left {
   width: calc(36.927vw - 4.27083vw);
-  border-right: 1px solid rgba(30, 39, 86, 0.15);
+  border-right: 1px solid rgba(30, 58, 95, 0.15);
   -ms-flex-negative: 0;
   flex-shrink: 0;
   -webkit-box-sizing: border-box;
@@ -979,8 +980,8 @@ body::-webkit-scrollbar-thumb:hover {
 
 .home-page .content__right {
   width: calc(100% - (36.927vw - 4.27083vw));
-  background: #f8fafc;
-  border-left: 1px solid rgba(30, 39, 86, 0.1);
+  background: transparent;
+  border-left: 1px solid rgba(30, 58, 95, 0.15);
   padding: 1.14583vw 1.14583vw;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
