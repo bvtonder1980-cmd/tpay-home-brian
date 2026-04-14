@@ -4,12 +4,12 @@ import { Alert } from "react-bootstrap";
 import "./Intro.css";
 
 const paymentLogos = [
-  { src: "/images/home_brand_blocks/visa.jpg", alt: "Visa" },
-  { src: "/images/home_brand_blocks/mastercard.jpg", alt: "Mastercard" },
-  { src: "/images/home_brand_blocks/amex.jpg", alt: "American Express" },
-  { src: "/images/home_brand_blocks/diners.jpg", alt: "Diners Club" },
-  { src: "/images/home_brand_blocks/applepay.jpg", alt: "Apple Pay" },
-  { src: "/images/home_brand_blocks/googlepay.jpg", alt: "Google Pay" },
+  { src: "/images/newHome/visa.png", alt: "Visa" },
+  { src: "/images/newHome/mc.png", alt: "Mastercard" },
+  { src: "/images/newHome/amex.png", alt: "American Express" },
+  { src: "/images/newHome/diners.png", alt: "Diners Club" },
+  { src: "/images/newHome/appl.png", alt: "Apple Pay" },
+  { src: "/images/newHome/ggl.png", alt: "Google Pay" },
 ];
 
 export default function Intro({ showLogin, setShowLogin, onRegisterClick, loginMessage, setLoginMessage, loginError, setLoginError }: { showLogin: boolean, setShowLogin: (show: boolean) => void, onRegisterClick: () => void, loginMessage: string, setLoginMessage: (message: string) => void, loginError: string, setLoginError: (error: string) => void }) {
