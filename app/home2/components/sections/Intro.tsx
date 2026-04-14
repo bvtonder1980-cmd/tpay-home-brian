@@ -12,20 +12,39 @@ const paymentLogos = [
   { src: "/images/newHome/ggl.png", alt: "Google Pay" },
 ];
 
+const stats = [
+  { number: "500+", label: "Travel Agencies", delay: 0 },
+  { number: "R2.5B+", label: "Processed Annually", delay: 0.1 },
+  { number: "99.9%", label: "Uptime", delay: 0.2 },
+  { number: "24/7", label: "Support", delay: 0.3 },
+];
+
+const features = [
+  { icon: "shield", title: "Secure Payments", desc: "PCI-DSS compliant" },
+  { icon: "globe", title: "Multi-Currency", desc: "Accept 50+ currencies" },
+  { icon: "zap", title: "Instant Settlement", desc: "Same-day payouts" },
+];
+
 export default function Intro({ showLogin, setShowLogin, onRegisterClick, loginMessage, setLoginMessage, loginError, setLoginError }: { showLogin: boolean, setShowLogin: (show: boolean) => void, onRegisterClick: () => void, loginMessage: string, setLoginMessage: (message: string) => void, loginError: string, setLoginError: (error: string) => void }) {
-    const buzzWords = ["Secure", "Reliable", "Fast", "Seamless"];
+    const headlines = ["Travel Agents", "Tour Operators", "TMCs", "OTAs"];
     const [animationPhase, setAnimationPhase] = useState<'typing' | 'backspacing' | 'idle'>('idle');
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [currentBuzzWord, setCurrentBuzzWord] = useState<string>(buzzWords[0]);
+    const [currentHeadline, setCurrentHeadline] = useState<string>(headlines[0]);
+    const [isVisible, setIsVisible] = useState(false);
+    
+    useEffect(() => {
+      // Trigger entrance animation
+      setIsVisible(true);
+    }, []);
     
     useEffect(() => {
       const interval = setInterval(() => {
         setAnimationPhase('backspacing');
   
         setTimeout(() => {
-          const nextIndex = (currentIndex + 1) % buzzWords.length;
+          const nextIndex = (currentIndex + 1) % headlines.length;
           setCurrentIndex(nextIndex);
-          setCurrentBuzzWord(buzzWords[nextIndex]);
+          setCurrentHeadline(headlines[nextIndex]);
           setAnimationPhase('typing');
   
           setTimeout(() => {
@@ -35,7 +54,7 @@ export default function Intro({ showLogin, setShowLogin, onRegisterClick, loginM
       }, 3000);
   
       return () => clearInterval(interval);
-  }, [currentIndex, buzzWords.length]);
+  }, [currentIndex, headlines.length]);
   
     return (
         <div className="scrollable">
@@ -98,33 +117,104 @@ export default function Intro({ showLogin, setShowLogin, onRegisterClick, loginM
               </div>
             </div>
             <div className="content__right">
-              <div className="hero-animation-container">
-                {/* Animated floating logos */}
-                <div className="floating-logos">
-                  {paymentLogos.map((logo, index) => (
+              <div className={`hero-section ${isVisible ? 'visible' : ''}`}>
+                {/* Main Hero Content */}
+                <div className="hero-main">
+                  <div className="hero-badge">
+                    <span className="badge-dot"></span>
+                    Built for Travel
+                  </div>
+                  
+                  <h2 className="hero-title">
+                    Payment Solutions for
+                    <span className="headline-wrapper">
+                      {headlines.map((headline, index) => (
+                        <span
+                          key={index}
+                          className={`rotating-headline ${currentHeadline === headline ? 'active' : ''} ${animationPhase === 'typing' && currentHeadline === headline ? 'typing-in' : ''} ${animationPhase === 'backspacing' && currentHeadline === headline ? 'typing-out' : ''}`}
+                        >
+                          {headline}
+                        </span>
+                      ))}
+                    </span>
+                  </h2>
+                  
+                  <p className="hero-description">
+                    Streamline your payment operations with our all-in-one platform designed 
+                    specifically for the travel industry. Accept payments, manage refunds, 
+                    and grow your business globally.
+                  </p>
+                  
+                  {/* Payment Methods */}
+                  <div className="payment-methods">
+                    <span className="payment-label">Accepted Payments</span>
+                    <div className="payment-logos">
+                      {paymentLogos.map((logo, index) => (
+                        <div 
+                          key={logo.alt} 
+                          className="payment-logo"
+                          style={{ animationDelay: `${index * 0.1}s` }}
+                        >
+                          <img src={logo.src} alt={logo.alt} />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Stats Row */}
+                <div className="hero-stats">
+                  {stats.map((stat, index) => (
                     <div 
-                      key={logo.alt} 
-                      className={`floating-logo floating-logo-${index + 1}`}
+                      key={stat.label} 
+                      className="stat-item"
+                      style={{ animationDelay: `${stat.delay + 0.3}s` }}
                     >
-                      <img src={logo.src} alt={logo.alt} />
+                      <span className="stat-number">{stat.number}</span>
+                      <span className="stat-label">{stat.label}</span>
                     </div>
                   ))}
                 </div>
                 
-                {/* Central buzzword display */}
-                <div className="hero-center-text">
-                  <div className="buzz-word-container">
-                    {buzzWords.map((word, index) => (
-                      <h1
-                        key={index}
-                        style={{ display: currentBuzzWord === word ? 'block' : 'none' }}
-                        className={`buzz-word ${animationPhase === 'typing' && currentBuzzWord === word ? 'typing-in' : animationPhase === 'backspacing' && currentBuzzWord === word ? 'backspacing-out' : ''}`}
-                      >
-                        {word}
-                      </h1>
-                    ))}
-                  </div>
-                  <p className="hero-subtext">Payment Solutions</p>
+                {/* Feature Cards */}
+                <div className="hero-features">
+                  {features.map((feature, index) => (
+                    <div 
+                      key={feature.title} 
+                      className="feature-card"
+                      style={{ animationDelay: `${0.5 + index * 0.15}s` }}
+                    >
+                      <div className="feature-icon">
+                        {feature.icon === 'shield' && (
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                          </svg>
+                        )}
+                        {feature.icon === 'globe' && (
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                          </svg>
+                        )}
+                        {feature.icon === 'zap' && (
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                          </svg>
+                        )}
+                      </div>
+                      <div className="feature-content">
+                        <h4>{feature.title}</h4>
+                        <p>{feature.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                
+                {/* Decorative Elements */}
+                <div className="hero-decorations">
+                  <div className="decoration-circle circle-1"></div>
+                  <div className="decoration-circle circle-2"></div>
+                  <div className="decoration-circle circle-3"></div>
                 </div>
               </div>
             </div>
