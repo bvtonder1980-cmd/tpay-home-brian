@@ -70,7 +70,9 @@ export default function Intro({ showLogin, setShowLogin, onRegisterClick, loginM
           <div className="content">
             <div className="content__left">
               <div className="content__logo">
-                <img src="img/tpay-welcome.png" alt=""/>
+                <div className="logo-text">
+                  <span className="logo-travel">travel</span><span className="logo-pay">Pay</span>
+                </div>
               </div>
               <div className="content__title">
                 <div className="h1">The Closed Payments</div>

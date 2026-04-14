@@ -325,14 +325,33 @@ body::-webkit-scrollbar-thumb:hover {
 
 .content__logo {
   width: 100%;
-  text-align: center;
-  margin: 0 auto;
-  margin-bottom: 20px;
+  text-align: left;
+  margin: 0;
+  margin-bottom: 24px;
 }
 
 .content__logo img {
   width: 70%;
   height: auto;
+}
+
+.logo-text {
+  font-family: "Barlow", sans-serif;
+  font-size: 3.2vw;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  display: inline-block;
+}
+
+.logo-travel {
+  color: #1E3A5F;
+  font-weight: 500;
+}
+
+.logo-pay {
+  color: #4A90D9;
+  font-weight: 700;
 }
 
 .noise {
