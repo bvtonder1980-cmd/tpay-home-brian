@@ -342,6 +342,60 @@
   50% { transform: translate(-20px, 20px) scale(1.1); }
 }
 
+/* Floating Particles */
+.floating-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  opacity: 0.25;
+  color: #4A90D9;
+  animation: float-up linear infinite;
+}
+
+.particle svg {
+  width: 16px;
+  height: 16px;
+}
+
+.particle .dot {
+  display: block;
+  width: 4px;
+  height: 4px;
+  background: #4A90D9;
+  border-radius: 50%;
+}
+
+.particle-1 { left: 5%; animation-duration: 18s; animation-delay: 0s; }
+.particle-2 { left: 15%; animation-duration: 22s; animation-delay: -4s; }
+.particle-3 { left: 30%; animation-duration: 20s; animation-delay: -8s; }
+.particle-4 { left: 45%; animation-duration: 25s; animation-delay: -2s; }
+.particle-5 { left: 60%; animation-duration: 19s; animation-delay: -10s; }
+.particle-6 { left: 72%; animation-duration: 23s; animation-delay: -6s; }
+.particle-7 { left: 85%; animation-duration: 21s; animation-delay: -12s; }
+.particle-8 { left: 95%; animation-duration: 24s; animation-delay: -3s; }
+
+@keyframes float-up {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.25;
+  }
+  90% {
+    opacity: 0.25;
+  }
+  100% {
+    transform: translateY(-50px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
 /* Responsive */
 @media screen and (max-width: 1200px) {
   .hero-section {
