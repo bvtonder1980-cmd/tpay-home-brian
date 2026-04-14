@@ -79,19 +79,19 @@ export default function Intro({ showLogin, setShowLogin, onRegisterClick, loginM
                 <div className="h1">Ecosystem designed</div>
                 <div className="h1">for Travel businesses</div>
               </div>
-              <div className="content__btn-block">
-                <a className="login-btn" data-link="6" onClick={() => setShowLogin(true)}>
-                  Login
-                </a>
-                &nbsp;
-                <a className="register-btn" data-link="6" onClick={onRegisterClick}>
-                  Register
-                </a>
-              </div>
               <div className="login-box2" >
                 <div className="login-modal__content">
                   {loginMessage && <Alert variant="info">{loginMessage}</Alert>}
                   {loginError && <Alert variant="danger">{loginError}</Alert>}
+                  <div className="content__btn-block">
+                    <a className="login-btn" data-link="6" onClick={() => setShowLogin(true)}>
+                      Login
+                    </a>
+                    &nbsp;
+                    <a className="register-btn" data-link="6" onClick={onRegisterClick}>
+                      Register
+                    </a>
+                  </div>
                   <div className="login-modal__form">
                     <div className="login-modal__form-input">
                       <input type="text" name="username" placeholder="Username"/>
