@@ -350,7 +350,10 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .logo-pay {
-  color: #4A90D9;
+  background: linear-gradient(135deg, #4A90D9 0%, #F5A68C 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   font-weight: 700;
 }
 
