@@ -2153,7 +2153,7 @@ body::-webkit-scrollbar-thumb:hover {
   border-radius: 5px;
   font-size: 18px;
   transition: all 0.3s ease;
-  width: 120px;
+  flex: 1;
   text-align: center;
   color: #ffffff;
 }
@@ -2172,7 +2172,7 @@ body::-webkit-scrollbar-thumb:hover {
   margin-left: 10px;
   font-size: 18px;
   transition: all 0.3s ease;
-  width: 120px;
+  flex: 1;
   text-align: center;
   color: #4A90D9;
 }
