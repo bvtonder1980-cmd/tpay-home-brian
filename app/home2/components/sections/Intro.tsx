@@ -81,7 +81,6 @@ export default function Intro({ showLogin, setShowLogin, onRegisterClick, loginM
               </div>
               <div className="login-box2" >
                 <div className="login-modal__content">
-                  <div className="login-modal__title">Login</div>
                   {loginMessage && <Alert variant="info">{loginMessage}</Alert>}
                   {loginError && <Alert variant="danger">{loginError}</Alert>}
                   <div className="login-modal__form">
