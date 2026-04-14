@@ -1,17 +1,17 @@
 .tpay-button {
-    background: linear-gradient(135deg, #4facfe 0%, #00d4ff 100%);
-    color: #fff;
+    background: linear-gradient(135deg, #7ec8e3 0%, #a8d8ea 100%);
+    color: #2d3748;
     border: none;
     font-size: 1.2rem;
     font-weight: 600;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 20px rgba(79, 172, 254, 0.4);
+    box-shadow: 0 4px 20px rgba(126, 200, 227, 0.4);
     border-radius: 50px;
 }
 
 .tpay-button:hover {
-    background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 50%, #ffa94d 100%);
-    color: #fff;
+    background: linear-gradient(135deg, #ffb088 0%, #ffc6a5 50%, #ffd4b8 100%);
+    color: #2d3748;
     transform: translateY(-2px);
-    box-shadow: 0 6px 25px rgba(255, 140, 66, 0.5);
+    box-shadow: 0 6px 25px rgba(255, 176, 136, 0.5);
 }

@@ -1,8 +1,8 @@
 footer {
-    background: rgba(10, 22, 40, 0.85);
+    background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-top: 1px solid rgba(79, 172, 254, 0.15);
+    border-top: 1px solid rgba(126, 200, 227, 0.3);
     min-height: 300px;
     bottom: 0;
     position: relative;
@@ -12,25 +12,25 @@ footer {
     padding-right: 40px;
     padding-top: 20px;
     padding-bottom: 30px;
-    color: rgba(248, 250, 252, 0.85) !important;
+    color: #2d3748 !important;
 }
 
 footer a, footer a:visited {
-    color: rgba(248, 250, 252, 0.75);
+    color: #4a5568;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 footer a:hover {
-    color: #4facfe;
+    color: #5da2d5;
 }
 
 .footerLinks ul li a {
-    color: rgba(248, 250, 252, 0.65);
+    color: #718096;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .footerLinks ul li a:hover {
-    color: #ff8c42;
+    color: #ffb088;
 }

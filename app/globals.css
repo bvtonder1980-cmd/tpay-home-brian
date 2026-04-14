@@ -1,30 +1,31 @@
 @import "tailwindcss";
 
 :root {
-  /* Deep blue and sunset orange palette - NO purple */
-  --background: linear-gradient(135deg, #0a1628 0%, #0f2847 50%, #1a3a5c 100%);
-  --foreground: #f8fafc;
+  /* Light beach theme - pastel blues, sunset oranges, sandy tones */
+  --background: linear-gradient(135deg, #e8f4fc 0%, #d4eaf7 25%, #fef6e8 50%, #ffe8d6 75%, #ffd4b8 100%);
+  --foreground: #2d3748;
   
-  /* Primary colors - vivid blues */
-  --blue-vivid: #4facfe;
-  --blue-pastel: #00d4ff;
-  --blue-deep: #0066cc;
+  /* Primary colors - pastel blues */
+  --blue-pastel: #7ec8e3;
+  --blue-sky: #a8d8ea;
+  --blue-ocean: #5da2d5;
   
-  /* Sunset orange spectrum */
-  --orange-sunset: #ff6b35;
-  --orange-warm: #ff8c42;
-  --orange-glow: #ffa94d;
-  --coral-accent: #ff7b54;
+  /* Sunset orange spectrum with beach sand */
+  --orange-sunset: #ffb088;
+  --orange-warm: #ffc6a5;
+  --orange-peach: #ffd4b8;
+  --sand-light: #f5e6d3;
+  --sand-warm: #e8d5c4;
   
-  /* Glass effect colors */
-  --glass-bg: rgba(255, 255, 255, 0.06);
-  --glass-border: rgba(79, 172, 254, 0.2);
-  --glass-shadow: rgba(0, 0, 0, 0.3);
+  /* Glass effect colors for light theme */
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(126, 200, 227, 0.4);
+  --glass-shadow: rgba(45, 55, 72, 0.1);
   
-  /* Accent gradients - more sunset orange shading */
-  --gradient-sunset: linear-gradient(135deg, #ff6b35 0%, #ff8c42 50%, #ffa94d 100%);
-  --gradient-blue: linear-gradient(135deg, #4facfe 0%, #00d4ff 100%);
-  --gradient-mixed: linear-gradient(135deg, #ff6b35 0%, #ff8c42 50%, #4facfe 100%);
+  /* Accent gradients - pastel beach vibes */
+  --gradient-sunset: linear-gradient(135deg, #ffb088 0%, #ffc6a5 50%, #ffd4b8 100%);
+  --gradient-blue: linear-gradient(135deg, #7ec8e3 0%, #a8d8ea 100%);
+  --gradient-beach: linear-gradient(135deg, #a8d8ea 0%, #fef6e8 40%, #ffd4b8 100%);
 }
 
 @theme inline {
@@ -63,7 +64,7 @@ body {
   content: '';
   position: absolute;
   inset: -2px;
-  background: var(--gradient-mixed);
+  background: var(--gradient-beach);
   border-radius: inherit;
   z-index: -1;
   opacity: 0;
@@ -77,15 +78,15 @@ body {
 .btn-primary {
   background: var(--gradient-blue);
   border: none;
-  color: #fff;
+  color: #2d3748;
   font-weight: 600;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(79, 172, 254, 0.4);
+  box-shadow: 0 4px 15px rgba(126, 200, 227, 0.4);
 }
 
 .btn-primary:hover {
   background: var(--gradient-sunset);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 140, 66, 0.5);
+  box-shadow: 0 6px 20px rgba(255, 176, 136, 0.5);
 }
 
