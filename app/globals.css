@@ -1,31 +1,31 @@
 @import "tailwindcss";
 
 :root {
-  /* Light beach theme - pastel blues, sunset oranges, sandy tones */
-  --background: linear-gradient(135deg, #e8f4fc 0%, #d4eaf7 25%, #fef6e8 50%, #ffe8d6 75%, #ffd4b8 100%);
-  --foreground: #2d3748;
+  /* Peach Payments inspired palette */
+  --background: #ffffff;
+  --foreground: #1e2756;
   
-  /* Primary colors - pastel blues */
-  --blue-pastel: #7ec8e3;
-  --blue-sky: #a8d8ea;
-  --blue-ocean: #5da2d5;
+  /* Primary colors - deep navy blue */
+  --navy-dark: #1e2756;
+  --navy-medium: #2a3567;
+  --navy-light: #3d4a7a;
   
-  /* Sunset orange spectrum with beach sand */
-  --orange-sunset: #ffb088;
-  --orange-warm: #ffc6a5;
-  --orange-peach: #ffd4b8;
-  --sand-light: #f5e6d3;
-  --sand-warm: #e8d5c4;
+  /* Accent - vibrant peach orange */
+  --peach-primary: #f26522;
+  --peach-light: #ff7a3d;
+  --peach-dark: #e05515;
   
-  /* Glass effect colors for light theme */
-  --glass-bg: rgba(255, 255, 255, 0.7);
-  --glass-border: rgba(126, 200, 227, 0.4);
-  --glass-shadow: rgba(45, 55, 72, 0.1);
+  /* Neutrals */
+  --gray-50: #f8fafc;
+  --gray-100: #f1f5f9;
+  --gray-200: #e2e8f0;
+  --gray-400: #94a3b8;
+  --gray-600: #475569;
   
-  /* Accent gradients - pastel beach vibes */
-  --gradient-sunset: linear-gradient(135deg, #ffb088 0%, #ffc6a5 50%, #ffd4b8 100%);
-  --gradient-blue: linear-gradient(135deg, #7ec8e3 0%, #a8d8ea 100%);
-  --gradient-beach: linear-gradient(135deg, #a8d8ea 0%, #fef6e8 40%, #ffd4b8 100%);
+  /* Glass effect colors */
+  --glass-bg: rgba(255, 255, 255, 0.95);
+  --glass-border: rgba(30, 39, 86, 0.1);
+  --glass-shadow: rgba(30, 39, 86, 0.08);
 }
 
 @theme inline {
@@ -43,50 +43,40 @@ body {
   font-size-adjust: 0.5;
 }
 
-/* Modern glass card effect */
+/* Modern card effect */
 .glass-card {
   background: var(--glass-bg);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--glass-border);
-  border-radius: 16px;
-  box-shadow: 0 8px 32px var(--glass-shadow);
+  border-radius: 12px;
+  box-shadow: 0 4px 24px var(--glass-shadow);
 }
 
-/* Glowing button effect */
-.btn-glow {
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-
-.btn-glow::before {
-  content: '';
-  position: absolute;
-  inset: -2px;
-  background: var(--gradient-beach);
-  border-radius: inherit;
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.btn-glow:hover::before {
-  opacity: 1;
-}
-
+/* Primary button - Peach orange */
 .btn-primary {
-  background: var(--gradient-blue);
+  background: var(--peach-primary);
   border: none;
-  color: #2d3748;
+  color: #ffffff;
   font-weight: 600;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(126, 200, 227, 0.4);
+  box-shadow: 0 4px 15px rgba(242, 101, 34, 0.3);
 }
 
 .btn-primary:hover {
-  background: var(--gradient-sunset);
+  background: var(--peach-light);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 176, 136, 0.5);
+  box-shadow: 0 6px 20px rgba(242, 101, 34, 0.4);
 }
 
+/* Secondary button - Navy outline */
+.btn-secondary {
+  background: transparent;
+  border: 2px solid var(--navy-dark);
+  color: var(--navy-dark);
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: var(--navy-dark);
+  color: #ffffff;
+}
