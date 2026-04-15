@@ -77,14 +77,6 @@ export default function International() {
     return (
         <div className="scrollable">
             <section className="experience">
-              <div className="sticky-title">
-                <ul>
-                  <li>
-                    <div>International</div>
-                    <div>5.0</div>
-                  </li>
-                </ul>
-              </div>
               <div className="content">
                 <div className="content__left">
                   {/* Header */}

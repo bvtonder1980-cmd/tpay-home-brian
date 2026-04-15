@@ -8,14 +8,6 @@ export default function Contact({ showRegister,registerPercentage, setRegisterPe
     return (
       <div className="scrollable" id="hireme">
             <section className="contacts">
-              <div className="sticky-title">
-                <ul>
-                  <li>
-                    <div>Register</div>
-                    <div>{registerPercentage}%</div>
-                  </li>
-                </ul>
-              </div>
               <div className="content">
                 <div className="content__left">
                   <div className="content__title">
@@ -60,14 +52,6 @@ export default function Contact({ showRegister,registerPercentage, setRegisterPe
     return (
         <div className="scrollable" id="hireme">
             <section className="contacts">
-              <div className="sticky-title">
-                <ul>
-                  <li>
-                    <div>Contact</div>
-                    <div>7.0</div>
-                  </li>
-                </ul>
-              </div>
               <div className="content">
                 <div className="content__left">
                   <div className="content__title">

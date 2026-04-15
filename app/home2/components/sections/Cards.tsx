@@ -39,14 +39,6 @@ export default function Cards() {
     return (
         <div className="scrollable">
             <section className="awards">
-              <div className="sticky-title">
-                <ul>
-                  <li>
-                    <div>Cards/EFT</div>
-                    <div>3.0</div>
-                  </li>
-                </ul>
-              </div>
               <div className="content">
                 <div className="content__left">
                   {/* Header */}

@@ -115,14 +115,6 @@ export default function About() {
     return (
         <div className="scrollable dark-theme">
             <section className="projects">
-              <div className="sticky-title">
-                <ul>
-                  <li>
-                    <div>About travelPay</div>
-                    <div>2.0</div>
-                  </li>
-                </ul>
-              </div>
               <div className="content">
                 <div className="content__left">
                   {/* Header */}

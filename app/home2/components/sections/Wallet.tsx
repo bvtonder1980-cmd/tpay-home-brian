@@ -87,14 +87,6 @@ export default function Wallet() {
     return (
         <div className="scrollable dark-theme">
             <section className="news">
-              <div className="sticky-title">
-                <ul>
-                  <li>
-                    <div>TravelPay Wallet</div>
-                    <div>6.0</div>
-                  </li>
-                </ul>
-              </div>
               <div className="content">
                 <div className="content__left">
                   {/* Header */}
