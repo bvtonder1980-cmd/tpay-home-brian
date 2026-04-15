@@ -1613,6 +1613,281 @@ body::-webkit-scrollbar-thumb:hover {
   opacity: 0.8;
 }
 
+/* Crypto Page - Modern Styles */
+.crypto-header {
+  margin-bottom: 2rem;
+}
+
+.crypto-eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #E07A5F;
+  margin-bottom: 1rem;
+  position: relative;
+  padding-left: 2rem;
+}
+
+.crypto-eyebrow::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.5rem;
+  height: 2px;
+  background: #E07A5F;
+}
+
+.crypto-title {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 1.25rem 0;
+}
+
+.crypto-title-line {
+  font-family: "Barlow", sans-serif;
+  font-size: 2.5vw;
+  font-weight: 700;
+  line-height: 1.15;
+  color: #1E3A5F;
+  letter-spacing: -0.02em;
+}
+
+.crypto-title-accent {
+  background: linear-gradient(135deg, #F7931A 0%, #E07A5F 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.crypto-subtitle {
+  font-size: 1rem;
+  color: #4A6A8F;
+  line-height: 1.7;
+  margin: 0;
+  max-width: 340px;
+}
+
+/* Crypto Value Props */
+.crypto-value-props {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+  padding: 1.5rem 0;
+  border-top: 1px solid rgba(30, 58, 95, 0.1);
+  border-bottom: 1px solid rgba(30, 58, 95, 0.1);
+}
+
+.crypto-value-prop {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  color: #1E3A5F;
+  font-weight: 500;
+}
+
+.crypto-value-prop svg {
+  width: 20px;
+  height: 20px;
+  color: #E07A5F;
+  flex-shrink: 0;
+}
+
+/* Crypto Partner */
+.crypto-partner {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: auto;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 12px;
+  border: 1px solid rgba(30, 58, 95, 0.08);
+}
+
+.crypto-partner-label {
+  font-size: 0.75rem;
+  color: #4A6A8F;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.crypto-partner-logo {
+  height: 50px;
+  width: auto;
+}
+
+/* Crypto Right Side */
+.crypto-right-header {
+  margin-bottom: 1.5rem;
+}
+
+.crypto-right-header h2 {
+  font-family: "Barlow", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1E3A5F;
+  margin: 0 0 0.5rem 0;
+}
+
+.crypto-right-header h2 span {
+  background: linear-gradient(135deg, #F7931A 0%, #E07A5F 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.crypto-right-header p {
+  font-size: 0.9rem;
+  color: #4A6A8F;
+  margin: 0;
+}
+
+/* Crypto Wallets */
+.crypto-wallets {
+  margin-bottom: 2rem;
+}
+
+.crypto-wallets-label {
+  display: block;
+  font-size: 0.75rem;
+  color: #4A6A8F;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+}
+
+.crypto-wallets-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.crypto-wallet {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(30, 58, 95, 0.1);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.crypto-wallet:hover {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(247, 147, 26, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(30, 58, 95, 0.1);
+}
+
+.crypto-wallet img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+/* Crypto Stats Carousel */
+.crypto-stats-carousel {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(30, 58, 95, 0.1);
+  border-radius: 16px;
+  padding: 1.5rem;
+}
+
+.crypto-stats-label {
+  display: block;
+  font-size: 0.8rem;
+  color: #4A6A8F;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.crypto-stats-container {
+  position: relative;
+  height: 80px;
+  overflow: hidden;
+}
+
+.crypto-stat-slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease;
+}
+
+.crypto-stat-slide.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.crypto-stat-number {
+  font-family: "Barlow", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #F7931A 0%, #E07A5F 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+.crypto-stat-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.crypto-stat-main {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1E3A5F;
+}
+
+.crypto-stat-highlight {
+  font-size: 0.85rem;
+  color: #4A6A8F;
+}
+
+.crypto-stats-dots {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.crypto-stats-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(30, 58, 95, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.crypto-stats-dot:hover {
+  background: rgba(30, 58, 95, 0.4);
+}
+
+.crypto-stats-dot.active {
+  background: linear-gradient(135deg, #F7931A 0%, #E07A5F 100%);
+  width: 24px;
+  border-radius: 4px;
+}
+
 @media screen and (max-width: 768px) and (orientation: portrait) {
   .home-page .scrollable {
     display: block;
