@@ -1087,6 +1087,12 @@ body::-webkit-scrollbar-thumb:hover {
               url('/images/travel-bg.jpg') center/cover no-repeat;
 }
 
+/* Crypto page dark theme background */
+.home-page .scrollable.dark-theme .testimonials .content {
+  background: linear-gradient(135deg, rgba(20, 30, 48, 0.92) 0%, rgba(30, 45, 65, 0.9) 50%, rgba(25, 40, 55, 0.88) 100%), 
+              url('/images/crypto-bg.jpg') center/cover no-repeat;
+}
+
 .home-page .scrollable.dark-theme .content__left,
 .home-page .scrollable.dark-theme .content__right {
   color: #ffffff;
