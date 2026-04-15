@@ -82,7 +82,7 @@ export default function Intro({ showLogin, setShowLogin, onRegisterClick, loginM
                 <h1 className="title-main">
                   <span className="title-line">Payments made</span>
                   <span className="title-line title-gradient">simpler and faster</span>
-                  <span className="title-line">for travel</span>
+                  <span className="title-line">for travel businesses</span>
                 </h1>
                 <p className="title-subtitle">
                   Join 500+ travel businesses processing over R2.5 billion annually
