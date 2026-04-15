@@ -2528,6 +2528,54 @@ body::-webkit-scrollbar-thumb:hover {
   z-index: 1;
 }
 
+/* Floating Travel Icons */
+.wallet-floating-icons {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.wallet-float-icon {
+  position: absolute;
+  color: rgba(245, 166, 140, 0.2);
+  animation: wallet-float linear infinite;
+}
+
+.wallet-float-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.wallet-float-1 { width: 35px; left: 5%; animation-duration: 22s; animation-delay: 0s; }
+.wallet-float-2 { width: 28px; left: 12%; animation-duration: 26s; animation-delay: -4s; }
+.wallet-float-3 { width: 32px; left: 22%; animation-duration: 24s; animation-delay: -10s; }
+.wallet-float-4 { width: 26px; left: 35%; animation-duration: 28s; animation-delay: -2s; }
+.wallet-float-5 { width: 30px; left: 48%; animation-duration: 23s; animation-delay: -8s; }
+.wallet-float-6 { width: 38px; left: 58%; animation-duration: 27s; animation-delay: -14s; }
+.wallet-float-7 { width: 24px; left: 68%; animation-duration: 21s; animation-delay: -6s; }
+.wallet-float-8 { width: 30px; left: 78%; animation-duration: 25s; animation-delay: -12s; }
+.wallet-float-9 { width: 28px; left: 86%; animation-duration: 29s; animation-delay: -3s; }
+.wallet-float-10 { width: 34px; left: 93%; animation-duration: 24s; animation-delay: -9s; }
+
+@keyframes wallet-float {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
 /* Contact Page - Modern Styles */
 .contact-header {
   margin-bottom: 2rem;
