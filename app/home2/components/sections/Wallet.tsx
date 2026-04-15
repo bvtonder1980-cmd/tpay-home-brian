@@ -91,7 +91,7 @@ export default function Wallet() {
                 {/* Video Background */}
                 <div className="wallet-video-bg">
                   <iframe 
-                    src="https://player.vimeo.com/video/528653312?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1"
+                    src="https://www.youtube.com/embed/ita2xKx6IsM?autoplay=1&mute=1&loop=1&playlist=ita2xKx6IsM&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
                     frameBorder="0"
                     allow="autoplay; fullscreen"
                     allowFullScreen
