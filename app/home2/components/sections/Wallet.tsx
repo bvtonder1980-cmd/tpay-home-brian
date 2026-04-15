@@ -95,9 +95,9 @@ export default function Wallet() {
                     muted 
                     loop 
                     playsInline
-                    poster="/images/travel-bg.jpg"
+                    crossOrigin="anonymous"
                   >
-                    <source src="https://cdn.pixabay.com/video/2020/05/31/40379-426958677_large.mp4" type="video/mp4" />
+                    <source src="https://static.videezy.com/system/resources/previews/000/041/615/original/Network.mp4" type="video/mp4" />
                   </video>
                   <div className="wallet-video-overlay"></div>
                 </div>
