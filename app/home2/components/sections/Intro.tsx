@@ -85,7 +85,7 @@ export default function Intro({ showLogin, setShowLogin, onRegisterClick, loginM
                   <span className="title-line">for travel businesses</span>
                 </h1>
                 <p className="title-subtitle">
-                  Join other future-focussed, tech-driven travel leaders and streamline your <span style={{whiteSpace: 'nowrap'}}>payment operations</span>
+                  Join other future-focussed, tech-driven travel leaders<br />and streamline your payment operations
                 </p>
               </div>
               
