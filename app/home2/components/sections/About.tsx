@@ -162,7 +162,7 @@ export default function About() {
                 
                 <div className="content__right">
                   {/* Feature Cards */}
-                  <div className="about-features">
+                  <div className="projects__blocks about-features">
                     {features.map((feature, index) => (
                       <div 
                         key={index} 
