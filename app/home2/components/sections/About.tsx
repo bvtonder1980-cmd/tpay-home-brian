@@ -125,7 +125,7 @@ export default function About() {
                       <span className="about-title-line about-title-accent">for travel</span>
                     </h1>
                     <p className="about-subtitle">
-                      Born from within the industry, travelPay is engineered to serve travel businesses exclusively - because your needs are unique.
+                      Join other future focussed, tech-driven travel leaders and streamline your payment operations
                     </p>
                   </div>
                   
