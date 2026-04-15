@@ -26,7 +26,7 @@ const features = [
 ];
 
 export default function Intro({ showLogin, setShowLogin, onRegisterClick, loginMessage, setLoginMessage, loginError, setLoginError }: { showLogin: boolean, setShowLogin: (show: boolean) => void, onRegisterClick: () => void, loginMessage: string, setLoginMessage: (message: string) => void, loginError: string, setLoginError: (error: string) => void }) {
-    const headlines = ["Travel Agents", "Tour Operators", "TMCs", "OTAs"];
+    const headlines = ["Travel Agents", "Tour Operators", "TMCs", "OTAs", "Hotels", "Airlines"];
     const [animationPhase, setAnimationPhase] = useState<'typing' | 'backspacing' | 'idle'>('idle');
     const [currentIndex, setCurrentIndex] = useState(0);
     const [currentHeadline, setCurrentHeadline] = useState<string>(headlines[0]);
