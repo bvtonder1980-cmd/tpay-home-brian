@@ -1972,6 +1972,54 @@ body::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.4);
 }
 
+/* Floating Bitcoin Icons */
+.crypto-floating-icons {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.crypto-float-icon {
+  position: absolute;
+  color: rgba(247, 147, 26, 0.15);
+  animation: crypto-float linear infinite;
+}
+
+.crypto-float-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.crypto-float-1 { width: 30px; left: 5%; animation-duration: 20s; animation-delay: 0s; }
+.crypto-float-2 { width: 20px; left: 15%; animation-duration: 25s; animation-delay: -5s; }
+.crypto-float-3 { width: 40px; left: 25%; animation-duration: 22s; animation-delay: -10s; }
+.crypto-float-4 { width: 25px; left: 35%; animation-duration: 28s; animation-delay: -3s; }
+.crypto-float-5 { width: 35px; left: 50%; animation-duration: 24s; animation-delay: -8s; }
+.crypto-float-6 { width: 22px; left: 60%; animation-duration: 26s; animation-delay: -12s; }
+.crypto-float-7 { width: 28px; left: 70%; animation-duration: 21s; animation-delay: -6s; }
+.crypto-float-8 { width: 32px; left: 80%; animation-duration: 27s; animation-delay: -15s; }
+.crypto-float-9 { width: 18px; left: 88%; animation-duration: 23s; animation-delay: -2s; }
+.crypto-float-10 { width: 24px; left: 95%; animation-duration: 29s; animation-delay: -9s; }
+
+@keyframes crypto-float {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
 @media screen and (max-width: 768px) and (orientation: portrait) {
   .home-page .scrollable {
     display: block;
