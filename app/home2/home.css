@@ -2162,8 +2162,8 @@ body::-webkit-scrollbar-thumb:hover {
 /*# sourceMappingURL=maps/main.css.map */
 
 .login-btn {
-  background: #4A90D9;
-  border: 2px solid #4A90D9;
+  background: #E07A5F;
+  border: 2px solid #E07A5F;
   padding: 10px 20px;
   border-radius: 5px;
   font-size: 18px;
@@ -2174,14 +2174,14 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .login-btn:hover {
-  background: transparent;
+  background: #C96A52;
+  border-color: #C96A52;
   color: #fff;
-  border-color: #fff;
 }
 
 .register-btn {
   background: transparent;
-  border: 2px solid #4A90D9;
+  border: 2px solid #E07A5F;
   padding: 10px 20px;
   border-radius: 5px;
   margin-left: 10px;
@@ -2189,7 +2189,7 @@ body::-webkit-scrollbar-thumb:hover {
   transition: all 0.3s ease;
   flex: 1;
   text-align: center;
-  color: #4A90D9;
+  color: #E07A5F;
 }
 
 .register-btn:hover {
