@@ -85,7 +85,7 @@ export default function Intro({ showLogin, setShowLogin, onRegisterClick, loginM
                   <span className="title-line">for travel businesses</span>
                 </h1>
                 <p className="title-subtitle">
-                  Join other future focused, tech-driven travel business leaders in streamlining their payment systems
+                  Join other future focussed, tech-driven travel business leaders and streamline your payment systems
                 </p>
               </div>
               
