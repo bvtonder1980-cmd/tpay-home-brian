@@ -1084,47 +1084,12 @@ body::-webkit-scrollbar-thumb:hover {
   position: relative;
 }
 
-/* Fixed tP Logo - Top Left Corner */
-.tp-corner-logo {
-  position: fixed;
-  top: 16px;
-  left: 16px;
-  width: 48px;
-  height: 48px;
-  background: #ffffff;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
-  z-index: 1000;
-}
-
-.tp-corner-logo span {
-  font-family: "Barlow", sans-serif;
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #1E3A5F;
-  letter-spacing: -0.02em;
-}
-
 @media screen and (max-width: 768px) and (orientation: portrait) {
   .home-page {
     height: auto;
     position: static;
     padding-top: 0;
     display: block;
-  }
-  
-  .tp-corner-logo {
-    top: 12px;
-    left: 12px;
-    width: 40px;
-    height: 40px;
-  }
-  
-  .tp-corner-logo span {
-    font-size: 1rem;
   }
 }
 
