@@ -1,31 +1,66 @@
+'use client';
+import { useState } from 'react';
+
 export default function About() {
+    const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+    
     const features = [
       {
         icon: "layers",
         title: "All-in-One Platform",
-        description: "Credit cards, EFT, crypto, Apple Pay, Google Pay and more - all with a single sign-on."
+        description: "Credit cards, EFT, crypto, Apple Pay, Google Pay and more - all with a single sign-on.",
+        details: [
+          "Get the latest payment technologies with a single sign-on; from Credit Card, Debit Card, EFT, Bitcoin & Crypto, Apple Pay, Google Pay and more, packaged into a platform, that allows your business to remain at the forefront of payments technology.",
+          "travelPay is also a closed payments ecosystem, designed exclusively for travel businesses who want to enhance, simplify, scale and streamline their pay-ins and pay-outs.",
+          "Born from within the industry, travelPay is engineered to serve the travel industry exclusively, because our needs are unique."
+        ]
       },
       {
         icon: "trending-up",
         title: "Expand Your Business",
-        description: "Give customers more payment options, enhancing their experience and boosting your sales."
+        description: "Give customers more payment options, enhancing their experience and boosting your sales.",
+        details: [
+          "In a world where customers love options, travelPay allows you to give your clients more options to pay you, enhancing their customer experience and boosting sales.",
+          "From normal card and EFT to Bitcoin and crypto payments, it's all included in your travelPay profile and payment options are displayed on your very own branded payments page.",
+          "No need to sign up for or manage multiple incoming payment channels. Your travelPay profile covers it all, streamlining your payment processes across channels and simplifying transactional reporting."
+        ]
       },
       {
         icon: "shield",
         title: "Closed Ecosystem",
-        description: "All participants are vetted travel businesses. Make wallet payments without exposing bank details."
+        description: "All participants are vetted travel businesses. Make wallet payments without exposing bank details.",
+        details: [
+          "travelPay is a closed ecosystem, which ensures that all participants are vetted as legitimate travel businesses.",
+          "Users can make wallet payments to each other without exposing bank or card details, drastically reducing the risk of fraud while transacting becomes instant.",
+          "Enjoy full control over which suppliers are approved for payment from your travelPay profile, ensuring that your team spend remains secure and controlled."
+        ]
       },
       {
         icon: "sliders",
         title: "Full Control",
-        description: "Manage all companies and branches with a single sign-on. Set approval workflows and limits."
+        description: "Manage all companies and branches with a single sign-on. Set approval workflows and limits.",
+        details: [
+          "You have full control over all your companies and/or branches with a single sign-on.",
+          "Give your team the ability to load payments for you to approve, or to make payment directly to pre-selected suppliers, with set limits in place.",
+          "Our systems are designed to be adaptable to your unique business infrastructure, operations and requirements."
+        ]
       },
       {
         icon: "settings",
         title: "Fully Customisable",
-        description: "Set detailed user rights across your organisation. Tailor the platform to your needs."
+        description: "Set detailed user rights across your organisation. Tailor the platform to your needs.",
+        details: [
+          "Set detailed user rights across your organisation.",
+          "Allow your team to create payment links for customers, add links to existing invoices, pay suppliers or simply load the payment for your approval, on a user-by-user level.",
+          "Set different user functions for management, accounts, agents, etc.",
+          "travelPay is fully customisable to your needs."
+        ]
       }
     ];
+    
+    const toggleExpand = (index: number) => {
+      setExpandedIndex(expandedIndex === index ? null : index);
+    };
 
     const renderIcon = (iconName: string) => {
       switch (iconName) {
@@ -129,19 +164,30 @@ export default function About() {
                   {/* Feature Cards */}
                   <div className="about-features">
                     {features.map((feature, index) => (
-                      <div key={index} className="about-feature-card" style={{ animationDelay: `${index * 0.1}s` }}>
-                        <div className="about-feature-icon">
-                          {renderIcon(feature.icon)}
+                      <div 
+                        key={index} 
+                        className={`about-feature-card ${expandedIndex === index ? 'expanded' : ''}`}
+                        style={{ animationDelay: `${index * 0.1}s` }}
+                        onClick={() => toggleExpand(index)}
+                      >
+                        <div className="about-feature-header">
+                          <div className="about-feature-icon">
+                            {renderIcon(feature.icon)}
+                          </div>
+                          <div className="about-feature-content">
+                            <h3>{feature.title}</h3>
+                            <p>{feature.description}</p>
+                          </div>
+                          <div className="about-feature-toggle">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                              <polyline points="6 9 12 15 18 9"/>
+                            </svg>
+                          </div>
                         </div>
-                        <div className="about-feature-content">
-                          <h3>{feature.title}</h3>
-                          <p>{feature.description}</p>
-                        </div>
-                        <div className="about-feature-arrow">
-                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                            <line x1="5" y1="12" x2="19" y2="12"/>
-                            <polyline points="12 5 19 12 12 19"/>
-                          </svg>
+                        <div className="about-feature-details">
+                          {feature.details.map((detail, dIndex) => (
+                            <p key={dIndex}>{detail}</p>
+                          ))}
                         </div>
                       </div>
                     ))}
