@@ -69,51 +69,90 @@ export default function Intro({ showLogin, setShowLogin, onRegisterClick, loginM
           </div>
           <div className="content">
             <div className="content__left">
+              {/* Logo */}
               <div className="content__logo">
                 <div className="logo-text">
                   <span className="logo-travel">travel</span><span className="logo-pay">Pay</span>
                 </div>
               </div>
+              
+              {/* Hero Headline */}
               <div className="content__title">
-                <div className="h1">The Closed Payments</div>
-                <div className="h1">Ecosystem designed</div>
-                <div className="h1">for Travel businesses</div>
+                <span className="title-eyebrow">Payment Infrastructure</span>
+                <h1 className="title-main">
+                  <span className="title-line">Payments made</span>
+                  <span className="title-line title-gradient">simple</span>
+                  <span className="title-line">for travel</span>
+                </h1>
+                <p className="title-subtitle">
+                  Join 500+ travel businesses processing over R2.5 billion annually
+                </p>
               </div>
-              <div className="login-box2" >
-                <div className="login-modal__content">
-                  {loginMessage && <Alert variant="info">{loginMessage}</Alert>}
-                  {loginError && <Alert variant="danger">{loginError}</Alert>}
-                  <div className="content__btn-block">
-                    <a className="login-btn" data-link="6" onClick={() => setShowLogin(true)}>
-                      Login
-                    </a>
-                    &nbsp;
-                    <a className="register-btn" data-link="6" onClick={onRegisterClick}>
-                      Register
-                    </a>
+              
+              {/* Login Card */}
+              <div className="login-card">
+                <div className="login-card__header">
+                  <span className="login-card__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+                      <polyline points="10 17 15 12 10 7"/>
+                      <line x1="15" y1="12" x2="3" y2="12"/>
+                    </svg>
+                  </span>
+                  <span className="login-card__title">Access your account</span>
+                </div>
+                {loginMessage && <Alert variant="info">{loginMessage}</Alert>}
+                {loginError && <Alert variant="danger">{loginError}</Alert>}
+                <div className="content__btn-block">
+                  <a className="login-btn" data-link="6" onClick={() => setShowLogin(true)}>
+                    Login
+                  </a>
+                  &nbsp;
+                  <a className="register-btn" data-link="6" onClick={onRegisterClick}>
+                    Register
+                  </a>
+                </div>
+                <div className="login-card__form">
+                  <div className="login-card__input-group">
+                    <svg className="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                      <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                    <input type="text" name="username" placeholder="Username"/>
                   </div>
-                  <div className="login-modal__form">
-                    <div className="login-modal__form-input">
-                      <input type="text" name="username" placeholder="Username"/>
-                    </div>
-                    <div className="login-modal__form-input">
-                      <input type="password" name="password" placeholder="Password"/>
-                    </div>
+                  <div className="login-card__input-group">
+                    <svg className="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                      <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                    </svg>
+                    <input type="password" name="password" placeholder="Password"/>
                   </div>
                 </div>
+                <a href="#" className="login-card__forgot">Forgot password?</a>
               </div>
-              <div className="home__numbers">
-                <div className="home__number">
-                  <div className="home__number-digital" data-number="8">8</div>
-                  <div className="home__number-text small">Years <br/>experience</div>
+              
+              {/* Trust Indicators */}
+              <div className="trust-indicators">
+                <div className="trust-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    <path d="M9 12l2 2 4-4"/>
+                  </svg>
+                  <span>Bank-grade security</span>
                 </div>
-                <div className="home__number">
-                  <div className="home__number-digital" data-number="5">5</div>
-                  <div className="home__number-text small">Themeforest <br/>awwards</div>
+                <div className="trust-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
+                  </svg>
+                  <span>99.9% uptime</span>
                 </div>
-                <div className="home__number">
-                  <div className="home__number-digital" data-number="60">60</div>
-                  <div className="home__number-text small">Projects <br/>Done</div>
+                <div className="trust-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                    <polyline points="22 4 12 14.01 9 11.01"/>
+                  </svg>
+                  <span>PCI-DSS certified</span>
                 </div>
               </div>
             </div>
