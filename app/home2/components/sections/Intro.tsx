@@ -78,7 +78,7 @@ export default function Intro({ showLogin, setShowLogin, onRegisterClick, loginM
               
               {/* Hero Headline */}
               <div className="content__title">
-                <span className="title-eyebrow">Payment Infrastructure</span>
+                <span className="title-eyebrow">Payment Orchestration Infrastructure</span>
                 <h1 className="title-main">
                   <span className="title-line">Payments made</span>
                   <span className="title-line title-gradient">simple</span>
