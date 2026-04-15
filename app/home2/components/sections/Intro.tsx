@@ -81,7 +81,7 @@ export default function Intro({ showLogin, setShowLogin, onRegisterClick, loginM
                 <span className="title-eyebrow">Payment Orchestration Infrastructure</span>
                 <h1 className="title-main">
                   <span className="title-line">Payments made</span>
-                  <span className="title-line title-gradient">simpler, faster &amp; cheaper</span>
+                  <span className="title-line title-gradient">simple</span>
                   <span className="title-line">for travel</span>
                 </h1>
                 <p className="title-subtitle">
