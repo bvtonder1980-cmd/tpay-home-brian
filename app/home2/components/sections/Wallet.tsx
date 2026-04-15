@@ -90,14 +90,13 @@ export default function Wallet() {
               <div className="content wallet-content">
                 {/* Video Background */}
                 <div className="wallet-video-bg">
-                  <video 
-                    autoPlay 
-                    muted 
-                    loop 
-                    playsInline
-                  >
-                    <source src="/videos/connected-earth.mp4" type="video/mp4" />
-                  </video>
+                  <iframe 
+                    src="https://player.vimeo.com/video/528653312?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1"
+                    frameBorder="0"
+                    allow="autoplay; fullscreen"
+                    allowFullScreen
+                    title="Connected Earth Background"
+                  />
                   <div className="wallet-video-overlay"></div>
                 </div>
                 
