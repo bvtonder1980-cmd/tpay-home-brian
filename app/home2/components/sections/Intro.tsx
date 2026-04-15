@@ -71,8 +71,8 @@ export default function Intro({ showLogin, setShowLogin, onRegisterClick, loginM
             <div className="content__left">
               {/* Logo */}
               <div className="content__logo">
-                <div className="logo-circle">
-                  <span className="logo-tp">tP</span>
+                <div className="logo-text">
+                  <span className="logo-travel">travel</span><span className="logo-pay">Pay</span>
                 </div>
               </div>
               
