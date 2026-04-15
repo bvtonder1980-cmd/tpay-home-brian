@@ -1400,6 +1400,219 @@ body::-webkit-scrollbar-thumb:hover {
   }
 }
 
+/* Cards Page - Modern Styles */
+.cards-header {
+  margin-bottom: 2rem;
+}
+
+.cards-eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #E07A5F;
+  margin-bottom: 1rem;
+  position: relative;
+  padding-left: 2rem;
+}
+
+.cards-eyebrow::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.5rem;
+  height: 2px;
+  background: #E07A5F;
+}
+
+.cards-title {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 1.25rem 0;
+}
+
+.cards-title-line {
+  font-family: "Barlow", sans-serif;
+  font-size: 2.5vw;
+  font-weight: 700;
+  line-height: 1.15;
+  color: #1E3A5F;
+  letter-spacing: -0.02em;
+}
+
+.cards-title-accent {
+  background: linear-gradient(135deg, #E07A5F 0%, #F5A68C 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.cards-subtitle {
+  font-size: 1rem;
+  color: #4A6A8F;
+  line-height: 1.7;
+  margin: 0;
+  max-width: 340px;
+}
+
+/* Cards Stats */
+.cards-stats {
+  display: flex;
+  gap: 1.5rem;
+  margin: 2rem 0;
+  padding: 1.5rem 0;
+  border-top: 1px solid rgba(30, 58, 95, 0.1);
+  border-bottom: 1px solid rgba(30, 58, 95, 0.1);
+}
+
+.cards-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.cards-stat-number {
+  font-family: "Barlow", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1E3A5F;
+  letter-spacing: -0.02em;
+}
+
+.cards-stat-label {
+  font-size: 0.7rem;
+  color: #4A6A8F;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Cards Partner */
+.cards-partner {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: auto;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 12px;
+  border: 1px solid rgba(30, 58, 95, 0.08);
+}
+
+.cards-partner-label {
+  font-size: 0.75rem;
+  color: #4A6A8F;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.cards-partner-logo {
+  height: 50px;
+  width: auto;
+}
+
+/* Cards Methods */
+.cards-methods {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.cards-methods-header {
+  margin-bottom: 1.5rem;
+}
+
+.cards-methods-header h2 {
+  font-family: "Barlow", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1E3A5F;
+  margin: 0 0 0.5rem 0;
+}
+
+.cards-methods-header h2 span {
+  background: linear-gradient(135deg, #E07A5F 0%, #F5A68C 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.cards-methods-header p {
+  font-size: 0.9rem;
+  color: #4A6A8F;
+  margin: 0;
+}
+
+.cards-methods-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  flex: 1;
+}
+
+.cards-method-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(30, 58, 95, 0.1);
+  border-radius: 16px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+}
+
+.cards-method-card:hover {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(224, 122, 95, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(30, 58, 95, 0.1);
+}
+
+.cards-method-content {
+  margin-bottom: 1rem;
+}
+
+.cards-method-content h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1E3A5F;
+  margin: 0 0 0.35rem 0;
+}
+
+.cards-method-content p {
+  font-size: 0.8rem;
+  color: #4A6A8F;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.cards-method-logos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-top: auto;
+}
+
+.cards-method-logos img {
+  height: 36px;
+  width: auto;
+  border-radius: 6px;
+  transition: transform 0.2s ease;
+}
+
+.cards-method-logos img:hover {
+  transform: scale(1.1);
+}
+
+.cards-method-badge {
+  margin-left: auto;
+  opacity: 0.8;
+}
+
 @media screen and (max-width: 768px) and (orientation: portrait) {
   .home-page .scrollable {
     display: block;
