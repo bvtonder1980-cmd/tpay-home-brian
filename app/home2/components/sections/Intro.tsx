@@ -85,7 +85,7 @@ export default function Intro({ showLogin, setShowLogin, onRegisterClick, loginM
                   <span className="title-line">for travel businesses</span>
                 </h1>
                 <p className="title-subtitle">
-                  Join 500+ travel businesses processing over R2.5 billion annually
+                  Join other future focused, tech-driven travel business leaders in streamlining their payment systems
                 </p>
               </div>
               
