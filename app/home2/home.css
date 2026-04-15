@@ -2568,7 +2568,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 @keyframes wallet-float {
   0% {
-    transform: translateY(100vh) rotate(0deg);
+    transform: translateY(100vh);
     opacity: 0;
   }
   10% {
@@ -2578,7 +2578,7 @@ body::-webkit-scrollbar-thumb:hover {
     opacity: 1;
   }
   100% {
-    transform: translateY(-100px) rotate(360deg);
+    transform: translateY(-100px);
     opacity: 0;
   }
 }
