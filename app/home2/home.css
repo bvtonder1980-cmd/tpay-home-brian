@@ -426,7 +426,7 @@ body::-webkit-scrollbar-thumb:hover {
   color: #4A6A8F;
   line-height: 1.6;
   margin: 0;
-  max-width: 320px;
+  max-width: 420px;
 }
 
 /* Login Card */
