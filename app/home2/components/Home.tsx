@@ -25,6 +25,10 @@ export default function Home() {
             <Header onMenuClick={() => setShowRegister(false)} />
             <div className="scroll">
                 <div className="home-page">
+                    {/* tP Logo */}
+                    <div className="tp-logo-fixed">
+                      <span>tP</span>
+                    </div>
                     <PageTitles showRegister={showRegister} registerPercentage={registerPercentage} />
                     <Intro showLogin={showLogin} loginMessage={loginMessage} setLoginMessage={setLoginMessage} loginError={loginError} setLoginError={setLoginError} setShowLogin={setShowLogin} onRegisterClick={() => {document.getElementById('contact-link')?.click(); setTimeout(() => {setShowRegister(true);}, 650);}} />
                     <About />

@@ -1061,6 +1061,31 @@ body::-webkit-scrollbar-thumb:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  position: relative;
+}
+
+/* tP Logo - Fixed Position */
+.tp-logo-fixed {
+  position: fixed;
+  top: 24px;
+  left: 24px;
+  width: 48px;
+  height: 48px;
+  background: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+}
+
+.tp-logo-fixed span {
+  font-family: "Barlow", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1E3A5F;
+  letter-spacing: -0.02em;
 }
 
 @media screen and (max-width: 768px) and (orientation: portrait) {
@@ -1069,6 +1094,17 @@ body::-webkit-scrollbar-thumb:hover {
     position: static;
     padding-top: 0;
     display: block;
+  }
+  
+  .tp-logo-fixed {
+    top: 16px;
+    left: 16px;
+    width: 40px;
+    height: 40px;
+  }
+  
+  .tp-logo-fixed span {
+    font-size: 1rem;
   }
 }
 
