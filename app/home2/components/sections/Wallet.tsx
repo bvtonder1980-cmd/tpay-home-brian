@@ -95,9 +95,8 @@ export default function Wallet() {
                     muted 
                     loop 
                     playsInline
-                    crossOrigin="anonymous"
                   >
-                    <source src="https://static.videezy.com/system/resources/previews/000/041/615/original/Network.mp4" type="video/mp4" />
+                    <source src="/videos/connected-earth.mp4" type="video/mp4" />
                   </video>
                   <div className="wallet-video-overlay"></div>
                 </div>
