@@ -2020,6 +2020,230 @@ body::-webkit-scrollbar-thumb:hover {
   }
 }
 
+/* International Page - Modern Styles */
+.intl-header {
+  margin-bottom: 2rem;
+}
+
+.intl-eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #E07A5F;
+  margin-bottom: 1rem;
+  position: relative;
+  padding-left: 2rem;
+}
+
+.intl-eyebrow::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.5rem;
+  height: 2px;
+  background: #E07A5F;
+}
+
+.intl-title {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 1.25rem 0;
+}
+
+.intl-title-line {
+  font-family: "Barlow", sans-serif;
+  font-size: 2.5vw;
+  font-weight: 700;
+  line-height: 1.15;
+  color: #1E3A5F;
+  letter-spacing: -0.02em;
+}
+
+.intl-title-accent {
+  background: linear-gradient(135deg, #4A90D9 0%, #6BA3E0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.intl-subtitle {
+  font-size: 1rem;
+  color: #4A6A8F;
+  line-height: 1.7;
+  margin: 0;
+  max-width: 340px;
+}
+
+/* International Stats */
+.intl-stats {
+  display: flex;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+  padding: 1.5rem 0;
+  border-top: 1px solid rgba(30, 58, 95, 0.1);
+  border-bottom: 1px solid rgba(30, 58, 95, 0.1);
+}
+
+.intl-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.intl-stat-number {
+  font-family: "Barlow", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1E3A5F;
+  letter-spacing: -0.02em;
+}
+
+.intl-stat-label {
+  font-size: 0.7rem;
+  color: #4A6A8F;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Coming Soon Badge */
+.intl-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 1rem;
+  background: linear-gradient(135deg, rgba(74, 144, 217, 0.1) 0%, rgba(107, 163, 224, 0.1) 100%);
+  border: 1px solid rgba(74, 144, 217, 0.2);
+  border-radius: 50px;
+  margin-bottom: 1.5rem;
+}
+
+.intl-badge-tag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #fff;
+  background: linear-gradient(135deg, #4A90D9 0%, #6BA3E0 100%);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+.intl-badge-text {
+  font-size: 0.85rem;
+  color: #4A90D9;
+  font-weight: 500;
+}
+
+/* International Partner */
+.intl-partner {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: auto;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 12px;
+  border: 1px solid rgba(30, 58, 95, 0.08);
+}
+
+.intl-partner-label {
+  font-size: 0.75rem;
+  color: #4A6A8F;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.intl-partner-logo {
+  height: 40px;
+  width: auto;
+}
+
+/* International Features */
+.intl-features {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.intl-features-header {
+  margin-bottom: 1.5rem;
+}
+
+.intl-features-header h2 {
+  font-family: "Barlow", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1E3A5F;
+  margin: 0;
+}
+
+.intl-features-header h2 span {
+  background: linear-gradient(135deg, #4A90D9 0%, #6BA3E0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.intl-features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.intl-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(30, 58, 95, 0.1);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.intl-feature-item:hover {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(74, 144, 217, 0.3);
+  transform: translateX(8px);
+}
+
+.intl-feature-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(74, 144, 217, 0.15) 0%, rgba(107, 163, 224, 0.15) 100%);
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.intl-feature-icon svg {
+  width: 20px;
+  height: 20px;
+  color: #4A90D9;
+}
+
+.intl-feature-content h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1E3A5F;
+  margin: 0 0 0.25rem 0;
+}
+
+.intl-feature-content p {
+  font-size: 0.8rem;
+  color: #4A6A8F;
+  margin: 0;
+  line-height: 1.5;
+}
+
 @media screen and (max-width: 768px) and (orientation: portrait) {
   .home-page .scrollable {
     display: block;
