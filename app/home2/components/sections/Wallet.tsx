@@ -88,16 +88,9 @@ export default function Wallet() {
         <div className="scrollable dark-theme">
             <section className="news">
               <div className="content wallet-content">
-                {/* Video Background */}
-                <div className="wallet-video-bg">
-                  <video 
-                    autoPlay 
-                    muted 
-                    loop 
-                    playsInline
-                  >
-                    <source src="https://cdn.pixabay.com/video/2019/09/16/27078-361494538_large.mp4" type="video/mp4" />
-                  </video>
+                {/* Background Image */}
+                <div className="wallet-bg-image">
+                  <img src="/images/connected-world.jpg" alt="" />
                   <div className="wallet-video-overlay"></div>
                 </div>
                 

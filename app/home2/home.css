@@ -2504,22 +2504,21 @@ body::-webkit-scrollbar-thumb:hover {
   overflow: hidden;
 }
 
-.wallet-video-bg {
+.wallet-video-bg,
+.wallet-bg-image {
   position: absolute;
   inset: 0;
   z-index: 0;
 }
 
 .wallet-video-bg video,
-.wallet-video-bg iframe {
+.wallet-video-bg iframe,
+.wallet-bg-image img {
   position: absolute;
-  width: 100vw;
-  height: 100vh;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  min-width: 100%;
-  min-height: 100%;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
   object-fit: cover;
   border: none;
 }
