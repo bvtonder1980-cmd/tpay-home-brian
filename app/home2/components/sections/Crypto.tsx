@@ -31,7 +31,7 @@ export default function Crypto() {
     }, [stats.length]);
 
     return (
-        <div className="scrollable">
+        <div className="scrollable dark-theme">
             <section className="testimonials">
               <div className="sticky-title">
                 <ul>

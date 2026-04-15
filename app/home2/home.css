@@ -1888,6 +1888,84 @@ body::-webkit-scrollbar-thumb:hover {
   border-radius: 4px;
 }
 
+/* Crypto Dark Theme Overrides */
+.dark-theme .crypto-title-line {
+  color: #ffffff;
+}
+
+.dark-theme .crypto-subtitle {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.dark-theme .crypto-value-props {
+  border-top-color: rgba(255, 255, 255, 0.1);
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-theme .crypto-value-prop {
+  color: #ffffff;
+}
+
+.dark-theme .crypto-value-prop svg {
+  color: #F7931A;
+}
+
+.dark-theme .crypto-partner {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-theme .crypto-partner-label {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.dark-theme .crypto-right-header h2 {
+  color: #ffffff;
+}
+
+.dark-theme .crypto-right-header p {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.dark-theme .crypto-wallets-label {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.dark-theme .crypto-wallet {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-theme .crypto-wallet:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(247, 147, 26, 0.4);
+}
+
+.dark-theme .crypto-stats-carousel {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-theme .crypto-stats-label {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.dark-theme .crypto-stat-main {
+  color: #ffffff;
+}
+
+.dark-theme .crypto-stat-highlight {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.dark-theme .crypto-stats-dot {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.dark-theme .crypto-stats-dot:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
 @media screen and (max-width: 768px) and (orientation: portrait) {
   .home-page .scrollable {
     display: block;
