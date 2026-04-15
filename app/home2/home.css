@@ -532,7 +532,7 @@ body::-webkit-scrollbar-thumb:hover {
   display: flex;
   flex-wrap: nowrap;
   gap: 0.5rem;
-  margin-top: auto;
+  margin-top: 0.5rem;
   width: 100%;
 }
 
