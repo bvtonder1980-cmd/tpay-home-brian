@@ -97,7 +97,7 @@ export default function Wallet() {
                     playsInline
                     poster="/images/travel-bg.jpg"
                   >
-                    <source src="https://videos.pexels.com/video-files/3141208/3141208-uhd_2560_1440_25fps.mp4" type="video/mp4" />
+                    <source src="https://videos.pexels.com/video-files/852400/852400-hd_1920_1080_30fps.mp4" type="video/mp4" />
                   </video>
                   <div className="wallet-video-overlay"></div>
                 </div>
