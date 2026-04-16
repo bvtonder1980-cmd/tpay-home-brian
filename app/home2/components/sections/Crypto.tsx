@@ -31,7 +31,7 @@ export default function Crypto() {
     }, [stats.length]);
 
     return (
-        <div className="scrollable dark-theme">
+        <div className="scrollable">
             <section className="testimonials">
               <div className="content">
                 {/* Floating Bitcoin Icons */}
