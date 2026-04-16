@@ -259,6 +259,11 @@ body {
   min-height: 100vh;
 }
 
+/* Page 1 (Intro) - Ocean Blue to Teal Gradient */
+section.home .content {
+  background: linear-gradient(135deg, #0077B6 0%, #00A8A8 50%, #20B2AA 100%) !important;
+}
+
 input,
 button {
   -webkit-appearance: none;
