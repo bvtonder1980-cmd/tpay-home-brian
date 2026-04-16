@@ -37,7 +37,7 @@ export default function Cards() {
     ];
 
     return (
-        <div className="scrollable dark-theme">
+        <div className="scrollable">
             <section className="awards">
               <div className="content">
                 <div className="content__left">

@@ -75,7 +75,7 @@ export default function International() {
     };
 
     return (
-        <div className="scrollable dark-theme">
+        <div className="scrollable">
             <section className="experience">
               <div className="content">
                 <div className="content__left">

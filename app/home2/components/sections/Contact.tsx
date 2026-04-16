@@ -49,7 +49,7 @@ export default function Contact({ showRegister, registerPercentage, setRegisterP
   // Registration in progress view
   if(showRegister) {
     return (
-      <div className="scrollable dark-theme" id="hireme">
+      <div className="scrollable" id="hireme">
         <section className="contacts">
           <div className="content">
             <div className="content__left">
@@ -114,7 +114,7 @@ export default function Contact({ showRegister, registerPercentage, setRegisterP
   
   // Default contact view
   return (
-    <div className="scrollable dark-theme" id="hireme">
+    <div className="scrollable" id="hireme">
       <section className="contacts">
         <div className="content">
           <div className="content__left">

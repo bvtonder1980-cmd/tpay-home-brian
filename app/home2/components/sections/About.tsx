@@ -113,7 +113,7 @@ export default function About() {
     };
 
     return (
-        <div className="scrollable">
+        <div className="scrollable dark-theme">
             <section className="projects">
               <div className="content">
                 <div className="content__left">

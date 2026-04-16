@@ -57,7 +57,7 @@ export default function Intro({ showLogin, setShowLogin, onRegisterClick, loginM
   }, [currentIndex, headlines.length]);
   
     return (
-        <div className="scrollable dark-theme">
+        <div className="scrollable">
         <section className="home">
           <div className="sticky-title">
             <ul>

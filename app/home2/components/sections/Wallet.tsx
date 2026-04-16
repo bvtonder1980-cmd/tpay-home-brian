@@ -85,7 +85,7 @@ export default function Wallet() {
     };
 
     return (
-        <div className="scrollable">
+        <div className="scrollable dark-theme">
             <section className="news">
               <div className="content wallet-content">
                 {/* Background Image */}
