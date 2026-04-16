@@ -324,6 +324,45 @@ body::-webkit-scrollbar-thumb:hover {
   }
 }
 
+/* Rotating Gradient Background for Page 1 */
+section.home {
+  position: relative;
+  overflow: hidden;
+}
+
+section.home::before {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    from 0deg,
+    #E8F4FC 0deg,
+    #F5EDE8 90deg,
+    #FFE5D8 180deg,
+    #F5C4B0 270deg,
+    #E8F4FC 360deg
+  );
+  animation: rotate-gradient 30s linear infinite reverse;
+  z-index: 0;
+  opacity: 0.7;
+}
+
+section.home > * {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes rotate-gradient {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .content__logo {
   width: 100%;
   text-align: left;
