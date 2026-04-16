@@ -336,6 +336,12 @@ body::-webkit-scrollbar-thumb:hover {
   height: auto;
 }
 
+.content__logo .logo-image {
+  max-width: 280px;
+  width: 100%;
+  height: auto;
+}
+
 .logo-text {
   font-family: "Barlow", sans-serif;
   font-size: 3.2vw;

@@ -71,9 +71,11 @@ export default function Intro({ showLogin, setShowLogin, onRegisterClick, loginM
             <div className="content__left">
               {/* Logo */}
               <div className="content__logo">
-                <div className="logo-text">
-                  <span className="logo-travel">travel</span><span className="logo-pay">Pay</span>
-                </div>
+                <img 
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Welcome%20to%20TravelPay%20Logo-hhReHjxD8f1WI8pMfwtGnb1UkgIr8c.png" 
+                  alt="Welcome to travelPay" 
+                  className="logo-image"
+                />
               </div>
               
               {/* Hero Headline */}
