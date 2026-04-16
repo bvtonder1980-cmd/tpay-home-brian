@@ -1081,6 +1081,3 @@ $(function (){
     }
 });
 //# sourceMappingURL=maps/main.js.map
-
-
-[Process completed successfully with exit code 0]
