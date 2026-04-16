@@ -101,7 +101,7 @@ $(function() {
     }
 });
 
-/* 2.4 Home scroll animation - Mixed Vertical/Horizontal */
+/* 2.4 Home scroll animation */
 $(window).on('load',function (){
     $('#preloader').fadeOut(1500);
     if ($('.home-page').length > 0) {
@@ -113,131 +113,144 @@ $(window).on('load',function (){
                 gsap.to('.main--home', {duration: 0.5,autoAlpha: 1},0);
             });
 
+
             let titles = gsap.utils.toArray(".page-title li"),
-                horizontalSections = gsap.utils.toArray(".horizontal-scroll-container .scrollable"),
+                sections = gsap.utils.toArray(".scrollable"),
                 projectBlocks = gsap.utils.toArray(".projects__blocks .projects__block"),
                 newsBlocks = gsap.utils.toArray(".news__blocks .news__block");
 
-            // === NEW MIXED VERTICAL/HORIZONTAL SCROLL SYSTEM ===
-            // Vertical: Home → About → Cards
-            // Horizontal: Cards → Crypto → Global → Wallet  
-            // Vertical: Wallet → Contact
+            let projectHeights = [];
+            let projectHeightsScroll = [];
+            let projectHeightsTotal = 0;
+            let tempHeight = 0;
+            projectBlocks.forEach((block, index) => {
+                let height = $(block).outerHeight(),
+                    padding = parseInt($(block).css('padding-top'));
+                if (index > 0) {
+                    projectHeights[index] = tempHeight - $('.projects__blocks').innerHeight() / 2;
+                    projectHeightsScroll[index] = tempHeight + padding;
+                } else {
+                    projectHeights[index] = 0;
+                    projectHeightsScroll[index] = 0;
+                }
+                tempHeight += height;
+            });
+            projectHeightsTotal = tempHeight;
+
+            let newsHeights = [];
+            let newsHeightsScroll = [];
+            let newsHeightsTotal = 0;
+            tempHeight = 0;
+            newsBlocks.forEach((block, index) => {
+                let height = $(block).outerHeight(),
+                    padding = parseInt($(block).css('padding-top'));
+                if (index > 0) {
+                    newsHeights[index] = tempHeight - $('.news__blocks').innerHeight() / 2;
+                    newsHeightsScroll[index] = tempHeight + padding;
+                } else {
+                    newsHeights[index] = 0;
+                    newsHeightsScroll[index] = 0;
+                }
+                tempHeight += height;
+            });
+            newsHeightsTotal = tempHeight;
 
             let currentSlide = 0;
             let skipMode = false;
-            let blockNavigation = false;
 
-            // Horizontal scroll for Cards → Crypto → Global → Wallet
-            let horizontalWrapper = document.querySelector('.horizontal-scroll-wrapper');
-            let horizontalContainer = document.querySelector('.horizontal-scroll-container');
-            
-            if (horizontalWrapper && horizontalContainer && horizontalSections.length > 0) {
-                // Set up horizontal scroll container width
-                gsap.set(horizontalContainer, {
-                    width: (horizontalSections.length * 100) + '%',
-                    display: 'flex'
-                });
-                
-                gsap.set(horizontalSections, {
-                    width: (100 / horizontalSections.length) + '%',
-                    flexShrink: 0
-                });
+            let scrollDurationHome = 1000*(parseInt(hSpeed)/100),
+                addBlocksScroll = 200,
+                projectBlocksScroll = (projectHeightsTotal - $('.projects__blocks').innerHeight()) < 0 ? 0 : (projectHeightsTotal - $('.projects__blocks').innerHeight()) * (parseInt(vSpeed)/100),
+                // Use the actual scrollable distance to avoid measurement mismatch
+                // between outerHeight/innerHeight (and to keep ScrollTrigger ranges correct).
+                newsBlocksScroll = (function () {
+                    let el = $('.news__blocks');
+                    if (!el.length) return 0;
+                    let maxScroll = el[0].scrollHeight - el[0].clientHeight;
+                    if (maxScroll < 0) maxScroll = 0;
+                    return maxScroll * (parseInt(vSpeed)/100);
+                })();
 
-                // Horizontal scroll animation
-                let horizontalTween = gsap.to(horizontalContainer, {
-                    x: () => -(horizontalContainer.scrollWidth - horizontalWrapper.offsetWidth),
-                    ease: 'none'
-                });
-
-                ScrollTrigger.create({
-                    trigger: horizontalWrapper,
-                    pin: true,
-                    scrub: parseInt(scrubPower)/100,
-                    start: 'top top',
-                    end: () => '+=' + (horizontalContainer.scrollWidth - horizontalWrapper.offsetWidth),
-                    animation: horizontalTween,
-                    onUpdate: ({progress}) => {
-                        // Update menu based on horizontal progress
-                        let sectionIndex = Math.floor(progress * horizontalSections.length);
-                        sectionIndex = Math.min(sectionIndex, horizontalSections.length - 1);
-                        // Cards=2, Crypto=3, Global=4, Wallet=5
-                        let menuIndex = sectionIndex + 2;
-                        $('.header__menu li').removeClass('active');
-                        $('.header__menu li').eq(menuIndex).addClass('active');
-                        
-                        // Update title
-                        gsap.set(titles, {y: '100%'});
-                        gsap.set(titles[menuIndex], {y: '0'});
-                    }
-                });
+            let linkData = {
+                '0': 0,
+                '1': scrollDurationHome,
+                '2': scrollDurationHome * 2 + projectBlocksScroll + addBlocksScroll*2,
+                '3': scrollDurationHome * 3 + projectBlocksScroll + addBlocksScroll*2,
+                '4': scrollDurationHome * 4 + projectBlocksScroll + addBlocksScroll*2,
+                '5': scrollDurationHome * 5 + projectBlocksScroll + addBlocksScroll*2,
+                '6': scrollDurationHome * 6 + projectBlocksScroll + newsBlocksScroll + addBlocksScroll*4,
             }
 
-            // Title animations for vertical sections
-            // Home (0) is visible by default
-            gsap.set(titles, {y: '100%'});
-            gsap.delayedCall(0.2, function() {
-                gsap.to(titles[0], {y: '0', duration: 0.2});
-            });
+            let tl = gsap.timeline();
 
-            // About section title trigger
-            ScrollTrigger.create({
-                trigger: '.section-about',
-                start: 'top center',
-                end: 'bottom center',
-                onEnter: () => {
-                    gsap.to(titles[0], {y: '-100%', duration: 0.2});
-                    gsap.to(titles[1], {y: '0', duration: 0.2});
-                    $('.header__menu li').removeClass('active');
-                    $('.header__menu li').eq(1).addClass('active');
+            let st = ScrollTrigger.create({
+                trigger: ".scroll",
+                pin: true,
+                scrub: true,
+                start: "top top",
+                end: "+=" + (scrollDurationHome * (sections.length - 1) + projectBlocksScroll + newsBlocksScroll + addBlocksScroll*4),
+                onUpdate: ({progress, direction, isActive}) => {
+                    let currentScroll = $('html').scrollTop();
+                    Object.keys(linkData).forEach(key => {
+                        if (currentScroll >= linkData[key]) currentSlide = key;
+                    });
                 },
-                onLeaveBack: () => {
-                    gsap.to(titles[1], {y: '100%', duration: 0.2});
-                    gsap.to(titles[0], {y: '0', duration: 0.2});
-                    $('.header__menu li').removeClass('active');
-                    $('.header__menu li').eq(0).addClass('active');
-                }
+                animation: tl
             });
 
-            // Cards section title trigger (start of horizontal)
-            ScrollTrigger.create({
-                trigger: '.horizontal-scroll-wrapper',
-                start: 'top center',
-                end: 'top top',
-                onEnter: () => {
-                    gsap.to(titles[1], {y: '-100%', duration: 0.2});
-                    gsap.to(titles[2], {y: '0', duration: 0.2});
-                    $('.header__menu li').removeClass('active');
-                    $('.header__menu li').eq(2).addClass('active');
-                },
-                onLeaveBack: () => {
-                    gsap.to(titles[2], {y: '100%', duration: 0.2});
-                    gsap.to(titles[1], {y: '0', duration: 0.2});
-                    $('.header__menu li').removeClass('active');
-                    $('.header__menu li').eq(1).addClass('active');
-                }
-            });
 
-            // Contact section title trigger
-            ScrollTrigger.create({
-                trigger: '.section-contact',
-                start: 'top center',
-                end: 'bottom center',
-                onEnter: () => {
-                    gsap.set(titles, {y: '100%'});
-                    gsap.to(titles[6], {y: '0', duration: 0.2});
-                    $('.header__menu li').removeClass('active');
-                    $('.header__menu li').eq(6).addClass('active');
-                },
-                onLeaveBack: () => {
-                    gsap.to(titles[6], {y: '100%', duration: 0.2});
-                    gsap.to(titles[5], {y: '0', duration: 0.2});
-                    $('.header__menu li').removeClass('active');
-                    $('.header__menu li').eq(5).addClass('active');
-                }
-            });
+            let sectionNumber = 0;
 
-            // Section content animations
+            //home+projects start
+            sectionNumber++;
+
             gsap.set('.home .sticky-title li', {'opacity': 0});
+
+            let tlProjectBtn = new TimelineMax({paused: true});
+            tlProjectBtn.from(".projects .content__btn-block > *", 0.3, {scale: 0, ease: Back.easeOut});
+
+            let tlTitle2 = gsap.timeline({paused: true});
+            tlTitle2.fromTo(titles[sectionNumber], {y: "100%"},{y: "0", duration: 0.2,});
+            tlTitle2.fromTo(titles[sectionNumber - 1], {y: "0"}, {y: "-100%", duration: 0.2,}, 0);
+
+            let blockNavigation = false;
+
+            let tl1 = gsap.timeline();
+            let st1 = ScrollTrigger.create({
+                trigger: "body",
+                scrub: parseInt(scrubPower)/100,
+                start: "0 -" + 0,
+                snap: parseInt(snapMode),
+                end: "+=" + scrollDurationHome,
+                onUpdate: ({progress, direction, isActive}) => {
+                    if (progress >= 0.9) {
+                        tlProjectBtn.play();
+                    } else {
+                        tlProjectBtn.reverse();
+                    }
+                    blockNavigation = true;
+                    $('.header__menu').addClass('blocked');
+                },
+                onScrubComplete: ({progress, direction, isActive}) => {
+                    blockNavigation = false;
+                    $('.header__menu').removeClass('blocked');
+                },
+                onToggle: ({progress, direction, isActive}) => {
+                    if (!isActive && direction > 0) {
+                        if (!skipMode) tlTitle2.play();
+                        $('.header__menu li').removeClass('active');
+                        $('.header__menu li').eq(1).addClass('active');
+                    } else if (isActive && direction < 0) {
+                        if (!skipMode) tlTitle2.reverse();
+                        $('.header__menu li').removeClass('active');
+                        $('.header__menu li').eq(0).addClass('active');
+                    }
+                },
+                animation: tl1
+            });
+
+
+            tl1.fromTo(sections,{xPercent: 0}, {xPercent: -100, ease: "none"}, 0);
 
             gsap.delayedCall(0.4, function () {
                 let tl1 = new TimelineMax();
@@ -280,97 +293,646 @@ $(window).on('load',function (){
                 gsap.to(".home__circle--left", {left: '65%', duration: 2, opacity: 1});
                 gsap.to(".home__circle--right", {right: '35vw', duration: 2, opacity: 1});
             });
+            tl1.to(".home__circle--left, .home__circle--rigth", {
+                x: 0,
+                ease: "none"
+            }, 0);
 
-            // Section content reveal animations using ScrollTrigger
-            // Projects/About section animations
-            ScrollTrigger.create({
-                trigger: '.section-about',
-                start: 'top 80%',
-                once: true,
-                onEnter: () => {
-                    let titlesProjects = gsap.utils.toArray(".projects .content__title > *");
-                    titlesProjects.forEach((title, index) => {
-                        gsap.from(title, {autoAlpha: 0, x: index % 2 === 0 ? -100 : 100, duration: 0.8, delay: index * 0.1});
-                    });
+
+            //projects
+            let titlesProjects = gsap.utils.toArray(".projects .content__title > *");
+            titlesProjects.forEach((title, index) => {
+                if (index % 2 === 0) {
+                    tl1.from(title, {autoAlpha: 0, right: -600 - 100 * index, ease: Power1.easeOut}, 0);
+                } else {
+                    tl1.from(title, {autoAlpha: 0, left: -600 - 100 * index, ease: Power1.easeOut}, 0);
                 }
             });
 
-            // Cards section animations
-            ScrollTrigger.create({
-                trigger: '.horizontal-scroll-wrapper',
-                start: 'top 80%',
-                once: true,
-                onEnter: () => {
-                    let titlesAwards = gsap.utils.toArray(".awards .content__title > *");
-                    titlesAwards.forEach((title, index) => {
-                        gsap.from(title, {autoAlpha: 0, x: index % 2 === 0 ? -100 : 100, duration: 0.8, delay: index * 0.1});
+            let menuProjects = gsap.utils.toArray(".projects .projects__menu > li > *");
+            menuProjects.forEach((title, index) => {
+                tl1.from(title, {autoAlpha: 0, right: -700 - 150 * index, ease: Power1.easeOut}, 0);
+            });
+
+
+            let tl11 = gsap.timeline();
+            let st11 = ScrollTrigger.create({
+                trigger: "body",
+                scrub:parseInt(scrubPower)/100,
+                start: "0 -" + (scrollDurationHome + addBlocksScroll),
+                end: "+=" + projectBlocksScroll,
+                animation: tl11,
+            });
+            let projectsBlockHeight = 0;
+            $('.projects__block').each(function () {
+                projectsBlockHeight += $(this).outerHeight();
+            });
+            projectsBlockHeight -= $('.projects__blocks').innerHeight();
+            tl11.to(".projects__blocks", {
+                scrollTo: {y: projectsBlockHeight},
+                onUpdate: function () {
+                    let scrolled = $('.projects__blocks').scrollTop();
+                    let maxIndex = 0;
+                    projectHeights.forEach(function (value, index) {
+                        if (scrolled > value) maxIndex = index;
                     });
+                    $('.projects__menu li').removeClass('active');
+                    $('.projects__menu li').eq(maxIndex).addClass('active');
+                },
+                ease: "none"
+            }, 0);
+            //home+projects end
+
+
+            //awards start
+            sectionNumber++;
+
+            let tlAvardsBtn = new TimelineMax({paused: true});
+            tlAvardsBtn.from(".awards .content__description", 0.3, {
+                autoAlpha: 0,
+                left: -600,
+                ease: Power1.easeOut
+            });
+            tlAvardsBtn.from(".awards .content__btn-block > *", 0.3, {scale: 0, ease: Back.easeOut});
+
+            let tlTitle3 = gsap.timeline({paused: true});
+            tlTitle3.fromTo(titles[sectionNumber], {y: "100%"},{y: "0", duration: 0.2,});
+            tlTitle3.fromTo(titles[sectionNumber - 1], {y: "0"}, {y: "-100%", duration: 0.2,}, 0);
+
+            let tl3 = gsap.timeline();
+            let st3 = ScrollTrigger.create({
+                trigger: "body",
+                scrub:parseInt(scrubPower)/100,
+                start: "0 -" + (scrollDurationHome + projectBlocksScroll + addBlocksScroll*2),
+                end: "+=" + (scrollDurationHome),
+                onUpdate: ({progress, direction, isActive}) => {
+                    if (progress >= 0.9) {
+                        tlAvardsBtn.play();
+                    } else {
+                        tlAvardsBtn.reverse();
+                    }
+                },
+                onToggle: ({progress, direction, isActive}) => {
+                    if (!isActive && direction > 0) {
+                        if (!skipMode) tlTitle3.play();
+                        $('.header__menu li').removeClass('active');
+                        $('.header__menu li').eq(2).addClass('active');
+                    } else if (isActive && direction < 0) {
+                        if (!skipMode) tlTitle3.reverse();
+                        $('.header__menu li').removeClass('active');
+                        $('.header__menu li').eq(1).addClass('active');
+                    }
+                },
+                animation: tl3
+            });
+
+            let titlesAwards = gsap.utils.toArray(".awards .content__title > *");
+            titlesAwards.forEach((title, index) => {
+                if (index % 2 === 0) {
+                    tl3.from(title, {autoAlpha: 0, right: -600 - 100 * index, ease: Power1.easeOut}, 0);
+                } else {
+                    tl3.from(title, {autoAlpha: 0, left: -600 - 100 * index, ease: Power1.easeOut}, 0);
                 }
             });
 
-            // Contact section animations
-            ScrollTrigger.create({
-                trigger: '.section-contact',
-                start: 'top 80%',
-                once: true,
-                onEnter: () => {
-                    let titlesContacts = gsap.utils.toArray(".contacts .content__title > *");
-                    titlesContacts.forEach((title, index) => {
-                        gsap.from(title, {autoAlpha: 0, x: index % 2 === 0 ? -100 : 100, duration: 0.8, delay: index * 0.1});
-                    });
-                    gsap.from('.contacts .contacts__copyright', {autoAlpha: 0, y: 50, duration: 0.8, delay: 0.3});
+            let tl31 = gsap.timeline();
+            let st31 = ScrollTrigger.create({
+                trigger: "body",
+                scrub:parseInt(scrubPower)/100,
+                start: "0 -" + (scrollDurationHome + projectBlocksScroll + scrollDurationHome / 2 + addBlocksScroll*2),
+                end: "+=" + (scrollDurationHome / 2),
+                animation: tl31
+            });
+            tl31.from('.awards .content__subtitle', {autoAlpha: 0, top: -200, ease: Power1.easeOut}, 0);
+            let awardsAwards = gsap.utils.toArray(".awards__list .content__award");
+            awardsAwards.forEach((award, index) => {
+                tl31.from(award, {autoAlpha: 0, bottom: -800 - 300 * index, ease: Power1.easeOut}, 0);
+            });
+            //awards end
+
+            //testimonials start
+            sectionNumber++;
+            let tlTitle4 = gsap.timeline({paused: true});
+            tlTitle4.fromTo(titles[sectionNumber], {y: "100%"},{y: "0", duration: 0.2,});
+            tlTitle4.fromTo(titles[sectionNumber - 1], {y: "0"}, {y: "-100%", duration: 0.2,}, 0);
+
+            let tl4 = gsap.timeline();
+            let st4 = ScrollTrigger.create({
+                trigger: "body",
+                scrub:parseInt(scrubPower)/100,
+                start: "0 -" + (scrollDurationHome * (sectionNumber - 1) + projectBlocksScroll + addBlocksScroll*2),
+                end: "+=" + (scrollDurationHome),
+                onToggle: ({progress, direction, isActive}) => {
+                    if (!isActive && direction > 0) {
+                        if (!skipMode) tlTitle4.play();
+                        $('.header__menu li').removeClass('active');
+                        $('.header__menu li').eq(3).addClass('active');
+                    } else if (isActive && direction < 0) {
+                        if (!skipMode) tlTitle4.reverse();
+                        $('.header__menu li').removeClass('active');
+                        $('.header__menu li').eq(2).addClass('active');
+                    }
+                },
+                animation: tl4
+            });
+
+            let titlesTesti = gsap.utils.toArray(".testimonials .content__title > *");
+            titlesTesti.forEach((title, index) => {
+                if (index % 2 === 0) {
+                    tl4.from(title, {autoAlpha: 0, right: -600 - 100 * index, ease: Power1.easeOut}, 0);
+                } else {
+                    tl4.from(title, {autoAlpha: 0, left: -600 - 100 * index, ease: Power1.easeOut}, 0);
+                }
+            });
+            let clientsTesti = gsap.utils.toArray(".testimonials__clients > .testimonials__client");
+            clientsTesti.forEach((client, index) => {
+                tl4.from(client, {autoAlpha: 0, bottom: -600 - 200 * index, ease: Power1.easeOut}, 0);
+            });
+
+
+            let tl41 = gsap.timeline();
+            let st41 = ScrollTrigger.create({
+                trigger: "body",
+                scrub:parseInt(scrubPower)/100,
+                start: "0 -" + (scrollDurationHome * (sectionNumber - 1) + projectBlocksScroll + scrollDurationHome / 2 + addBlocksScroll*2),
+                end: "+=" + (scrollDurationHome / 2),
+                animation: tl41
+            });
+            tl41.from('.testimonials .content__subtitle', {autoAlpha: 0, top: -200, ease: Power1.easeOut}, 0);
+            //testimonials end
+
+
+            //experience start
+            sectionNumber++;
+
+            let tlExpBtn = new TimelineMax({paused: true});
+            tlExpBtn.from(".experience .content__description", 0.3, {
+                autoAlpha: 0,
+                left: -600,
+                ease: Power1.easeOut
+            });
+            tlExpBtn.from(".experience .content__btn-block > *", 0.3, {scale: 0, ease: Back.easeOut});
+
+            let tlTitle5 = gsap.timeline({paused: true});
+            tlTitle5.fromTo(titles[sectionNumber], {y: "100%"},{y: "0", duration: 0.2,});
+            tlTitle5.fromTo(titles[sectionNumber - 1], {y: "0"}, {y: "-100%", duration: 0.2,}, 0);
+
+
+            let tl5 = gsap.timeline();
+            let st5 = ScrollTrigger.create({
+                trigger: "body",
+                scrub:parseInt(scrubPower)/100,
+                start: "0 -" + (scrollDurationHome * (sectionNumber - 1) + projectBlocksScroll + addBlocksScroll*2),
+                end: "+=" + (scrollDurationHome),
+                onUpdate: ({progress, direction, isActive}) => {
+                    if (progress >= 0.9) {
+                        tlExpBtn.play();
+                    } else {
+                        tlExpBtn.reverse();
+                    }
+                },
+                onToggle: ({progress, direction, isActive}) => {
+                    if (!isActive && direction > 0) {
+                        if (!skipMode) tlTitle5.play();
+                        $('.header__menu li').removeClass('active');
+                        $('.header__menu li').eq(4).addClass('active');
+                    } else if (isActive && direction < 0) {
+                        if (!skipMode) tlTitle5.reverse();
+                        $('.header__menu li').removeClass('active');
+                        $('.header__menu li').eq(3).addClass('active');
+                    }
+                },
+                animation: tl5
+            });
+
+
+            let titlesExp = gsap.utils.toArray(".experience .content__title > *");
+            titlesExp.forEach((title, index) => {
+                if (index % 2 === 0) {
+                    tl5.from(title, {autoAlpha: 0, right: -600 - 100 * index, ease: Power1.easeOut}, 0);
+                } else {
+                    tl5.from(title, {autoAlpha: 0, left: -600 - 100 * index, ease: Power1.easeOut}, 0);
                 }
             });
 
-            // Menu navigation handler
-            $(document).on('click', '.js-scroll-link', function (event) {
+            let tl51 = gsap.timeline();
+            let st51 = ScrollTrigger.create({
+                trigger: "body",
+                scrub:parseInt(scrubPower)/100,
+                start: "0 -" + (scrollDurationHome * (sectionNumber - 1) + projectBlocksScroll + scrollDurationHome / 2 + addBlocksScroll*2),
+                end: "+=" + (scrollDurationHome / 2),
+                animation: tl51
+            });
+            let awardsExp = gsap.utils.toArray(".experience__list .content__award");
+            awardsExp.forEach((award, index) => {
+                tl51.from(award, {autoAlpha: 0, bottom: -800 - 300 * index, ease: Power1.easeOut}, 0);
+            });
+            //experience end
+
+            //news start
+            sectionNumber++;
+
+            let tlNewsBtn = new TimelineMax({paused: true});
+            tlNewsBtn.from(".news .content__btn-block > *", 0.3, {scale: 0, ease: Back.easeOut});
+
+            let tlTitle6 = gsap.timeline({paused: true});
+            tlTitle6.fromTo(titles[sectionNumber], {y: "100%"},{y: "0", duration: 0.2,});
+            tlTitle6.fromTo(titles[sectionNumber - 1], {y: "0"}, {y: "-100%", duration: 0.2,}, 0);
+
+            let tl6 = gsap.timeline();
+            let st6 = ScrollTrigger.create({
+                trigger: "body",
+                scrub:parseInt(scrubPower)/100,
+                start: "0 -" + (scrollDurationHome * (sectionNumber - 1) + projectBlocksScroll + addBlocksScroll*2),
+                end: "+=" + (scrollDurationHome),
+                onUpdate: ({progress, direction, isActive}) => {
+                    if (progress >= 0.9) {
+                        tlNewsBtn.play();
+                    } else {
+                        tlNewsBtn.reverse();
+                    }
+                },
+                onToggle: ({progress, direction, isActive}) => {
+                    if (!isActive && direction > 0) {
+                        if (!skipMode) tlTitle6.play();
+                        $('.header__menu li').removeClass('active');
+                        $('.header__menu li').eq(5).addClass('active');
+                    } else if (isActive && direction < 0) {
+                        if (!skipMode) tlTitle6.reverse();
+                        $('.header__menu li').removeClass('active');
+                        $('.header__menu li').eq(4).addClass('active');
+                    }
+                },
+                animation: tl6
+            });
+
+            let titlesNews = gsap.utils.toArray(".news .content__title > *");
+            titlesNews.forEach((title, index) => {
+                if (index % 2 === 0) {
+                    tl6.from(title, {autoAlpha: 0, right: -600 - 100 * index, ease: Power1.easeOut}, 0);
+                } else {
+                    tl6.from(title, {autoAlpha: 0, left: -600 - 100 * index, ease: Power1.easeOut}, 0);
+                }
+            });
+
+            let menuNews = gsap.utils.toArray(".news .news__menu > li > *");
+            menuNews.forEach((title, index) => {
+                tl6.from(title, {autoAlpha: 0, right: -700 - 150 * index, ease: Power1.easeOut}, 0);
+            });
+
+
+            let tl61 = gsap.timeline();
+            let st61 = ScrollTrigger.create({
+                trigger: "body",
+                scrub:parseInt(scrubPower)/100,
+                start: "0 -" + (scrollDurationHome * sectionNumber + projectBlocksScroll + addBlocksScroll*3),
+                end: "+=" + newsBlocksScroll,
+                animation: tl61
+            });
+            let newsBlocksEl = document.querySelector(".news__blocks");
+            let newsBlockOffsets = [];
+            if (newsBlocksEl) {
+                newsBlockOffsets = gsap.utils.toArray(".news__blocks .news__block").map(function(block){
+                    return block.offsetTop;
+                });
+            }
+
+            let newsMaxScroll = 0;
+            if (newsBlocksEl) {
+                newsMaxScroll = newsBlocksEl.scrollHeight - newsBlocksEl.clientHeight;
+                if (newsMaxScroll < 0) newsMaxScroll = 0;
+            }
+
+            tl61.to(".news__blocks", {
+                scrollTo: {y: newsMaxScroll},
+                onUpdate: function () {
+                    if (!newsBlocksEl) return;
+                    let scrolled = newsBlocksEl.scrollTop;
+                    let center = scrolled + newsBlocksEl.clientHeight / 2;
+                    let maxIndex = 0;
+                    newsBlockOffsets.forEach(function (value, index) {
+                        if (center >= value) maxIndex = index;
+                    });
+                    $('.news__menu li').removeClass('active');
+                    $('.news__menu li').eq(maxIndex).addClass('active');
+                },
+                ease: "none"
+            }, 0);
+            //news end
+
+
+            //contacts start
+            sectionNumber++;
+
+            let tlTitle7 = gsap.timeline({paused: true});
+            tlTitle7.fromTo(titles[sectionNumber], {y: "100%"},{y: "0", duration: 0.2,});
+            tlTitle7.fromTo(titles[sectionNumber - 1], {y: "0"}, {y: "-100%", duration: 0.2,}, 0);
+
+
+            let tl7 = gsap.timeline();
+            let st7 = ScrollTrigger.create({
+                trigger: "body",
+                scrub:parseInt(scrubPower)/100,
+                start: "0 -" + (scrollDurationHome * (sectionNumber - 1) + projectBlocksScroll + newsBlocksScroll + addBlocksScroll*4),
+                end: "+=" + (scrollDurationHome),
+                onToggle: ({progress, direction, isActive}) => {
+                    if (!isActive && direction > 0) {
+                        if (!skipMode) tlTitle7.play();
+                        $('.header__menu li').removeClass('active');
+                        $('.header__menu li').eq(6).addClass('active');
+                    } else if (isActive && direction < 0) {
+                        if (!skipMode) tlTitle7.reverse();
+                        $('.header__menu li').removeClass('active');
+                        $('.header__menu li').eq(5).addClass('active');
+                    }
+                },
+                animation: tl7
+            });
+
+
+            let titlesContacts = gsap.utils.toArray(".contacts .content__title > *");
+            titlesContacts.forEach((title, index) => {
+                if (index % 2 === 0) {
+                    tl7.from(title, {autoAlpha: 0, right: -600 - 100 * index, ease: Power1.easeOut}, 0);
+                } else {
+                    tl7.from(title, {autoAlpha: 0, left: -600 - 100 * index, ease: Power1.easeOut}, 0);
+                }
+            });
+            tl7.from('.contacts .contacts__copyright', {autoAlpha: 0, bottom: -300, ease: Power1.easeOut}, 0);
+
+            let menuContacts = gsap.utils.toArray(".contacts .contacts__menu > li > *");
+            menuContacts.forEach((title, index) => {
+                tl7.from(title, {autoAlpha: 0, right: -700 - 150 * index, ease: Power1.easeOut}, 0);
+            });
+
+            let tl71 = gsap.timeline();
+            let st71 = ScrollTrigger.create({
+                trigger: "body",
+                scrub:parseInt(scrubPower)/100,
+                start: "0 -" + (scrollDurationHome * (sectionNumber - 1) + projectBlocksScroll + newsBlocksScroll + scrollDurationHome / 2 + addBlocksScroll*4),
+                end: "+=" + (scrollDurationHome / 2),
+                animation: tl71
+            });
+            tl71.from('.contacts .content__subtitle', {autoAlpha: 0, top: -200, ease: Power1.easeOut}, 0);
+            tl71.from('.contacts .content__brief', {autoAlpha: 0, left: -400, ease: Power1.easeOut}, 0);
+            tl71.from('.contacts .content__form', {autoAlpha: 0, right: -400, ease: Power1.easeOut}, 0);
+            //contacts end
+
+
+            let tlScroll = gsap.timeline();
+            let stScroll = ScrollTrigger.create({
+                trigger: "body",
+                scrub:parseInt(scrubPower)/100,
+                start: "0 -" + (scrollDurationHome + projectBlocksScroll + addBlocksScroll*2),
+                end: "+=" + (scrollDurationHome * (sections.length - 3)),
+                snap: 0.25*parseInt(snapMode),
+                onUpdate: function () {
+                    blockNavigation = true;
+                    $('.header__menu').addClass('blocked');
+                },
+                onScrubComplete: ({progress, direction, isActive}) => {
+                    blockNavigation = false;
+                    $('.header__menu').removeClass('blocked');
+                },
+                animation: tlScroll
+            });
+            tlScroll.fromTo(sections, {xPercent: -100}, {xPercent: -100 * (sections.length - 2),ease: "none"}, 0);
+
+            let tlScrollLast = gsap.timeline();
+            let stScrollLast = ScrollTrigger.create({
+                trigger: "body",
+                scrub:parseInt(scrubPower)/100,
+                start: "0 -" + (scrollDurationHome * (sections.length - 2) + projectBlocksScroll + newsBlocksScroll + addBlocksScroll*4),
+                end: "+=" + (scrollDurationHome),
+                snap: parseInt(snapMode),
+                onUpdate: function () {
+                    blockNavigation = true;
+                    $('.header__menu').addClass('blocked');
+                },
+                onScrubComplete: ({progress, direction, isActive}) => {
+                    blockNavigation = false;
+                    $('.header__menu').removeClass('blocked');
+                },
+                animation: tlScrollLast
+            });
+            tlScrollLast.fromTo(sections, {xPercent: -100*(sections.length - 2)}, {xPercent: -100 * (sections.length - 1),ease: "none"}, 0);
+
+            gsap.set(titles, {y: "100%"});
+
+            gsap.delayedCall(0.2, function () {
+                gsap.to(titles[0], {y: "0", duration: 0.2});
+            });
+
+            gsap.set(sections, {xPercent: 0});
+
+            //menu navigation
+            $(document).on('click', '.js-scroll-link', function () {
                 event.preventDefault();
-                let link = parseInt($(this).data('link'));
-                let targetSection;
-                
-                switch(link) {
-                    case 0: targetSection = '.section-intro'; break;
-                    case 1: targetSection = '.section-about'; break;
-                    case 2: 
-                    case 3:
-                    case 4:
-                    case 5: targetSection = '.horizontal-scroll-wrapper'; break;
-                    case 6: targetSection = '.section-contact'; break;
-                    default: targetSection = '.section-intro';
-                }
-                
-                if ($(targetSection).length) {
-                    gsap.to(window, {
-                        duration: 0.8,
-                        scrollTo: { y: targetSection, offsetY: 0 },
-                        ease: 'power2.inOut'
-                    });
+                if (!blockNavigation && !skipMode){
+                    $('.header__menu').addClass('blocked');
+                    gsap.fromTo('.home-page', {autoAlpha: 1}, {duration: 0.4,autoAlpha: 0},0);
+                    skipMode = true;
+                    let link = $(this).data('link'),
+                        currentScroll = $('html').scrollTop();
+                    setTimeout(function (){
+                        st.scroll(parseInt(linkData[link]));
+                        switch (link) {
+                            case 0:
+                                tlScrollLast.progress(0);
+                                tlScroll.progress(0);
+                                tl7.progress(0);
+                                tl61.progress(0);
+                                tl6.progress(0);
+                                tl51.progress(0);
+                                tl5.progress(0);
+                                tl41.progress(0);
+                                tl4.progress(0);
+                                tl31.progress(0);
+                                tl3.progress(0);
+                                tl11.progress(0);
+                                tl1.progress(0);
+
+                                tlTitle7.progress(0).pause();
+                                tlTitle6.progress(0).pause();
+                                tlTitle5.progress(0).pause();
+                                tlTitle4.progress(0).pause();
+                                tlTitle3.progress(0).pause();
+                                tlTitle2.progress(0).pause();
+                                break;
+                            case 1:
+                                tlScrollLast.progress(0);
+                                tlScroll.progress(0);
+                                tl7.progress(0);
+                                tl61.progress(0);
+                                tl6.progress(0);
+                                tl51.progress(0);
+                                tl5.progress(0);
+                                tl41.progress(0);
+                                tl4.progress(0);
+                                tl31.progress(0);
+                                tl3.progress(0);
+                                tl11.progress(0);
+                                tl1.progress(1);
+
+                                tlTitle7.progress(0).pause();
+                                tlTitle6.progress(0).pause();
+                                tlTitle5.progress(0).pause();
+                                tlTitle4.progress(0).pause();
+                                tlTitle3.progress(0).pause();
+                                tlTitle2.progress(1).pause();
+                                break;
+                            case 2:
+                                tlScrollLast.progress(0);
+                                tlScroll.progress(0.25);
+                                tl7.progress(0);
+                                tl61.progress(0);
+                                tl6.progress(0);
+                                tl51.progress(0);
+                                tl5.progress(0);
+                                tl41.progress(0);
+                                tl4.progress(0);
+                                tl31.progress(1);
+                                tl3.progress(1);
+                                tl11.progress(1);
+                                tl1.progress(1);
+
+                                tlTitle7.progress(0).pause();
+                                tlTitle6.progress(0).pause();
+                                tlTitle5.progress(0).pause();
+                                tlTitle4.progress(0).pause();
+                                tlTitle3.progress(1).pause();
+                                tlTitle2.progress(1).pause();
+                                break;
+                            case 3:
+                                tlScrollLast.progress(0);
+                                tlScroll.progress(0.5);
+                                tl7.progress(0);
+                                tl61.progress(0);
+                                tl6.progress(0);
+                                tl51.progress(0);
+                                tl5.progress(0);
+                                tl41.progress(1);
+                                tl4.progress(1);
+                                tl31.progress(1);
+                                tl3.progress(1);
+                                tl11.progress(1);
+                                tl1.progress(1);
+
+                                tlTitle7.progress(0).pause();
+                                tlTitle6.progress(0).pause();
+                                tlTitle5.progress(0).pause();
+                                tlTitle4.progress(1).pause();
+                                tlTitle3.progress(1).pause();
+                                tlTitle2.progress(1).pause();
+                                break;
+                            case 4:
+                                tlScrollLast.progress(0);
+                                tlScroll.progress(0.75);
+                                tl7.progress(0);
+                                tl61.progress(0);
+                                tl6.progress(0);
+                                tl51.progress(1);
+                                tl5.progress(1);
+                                tl41.progress(1);
+                                tl4.progress(1);
+                                tl31.progress(1);
+                                tl3.progress(1);
+                                tl11.progress(1);
+                                tl1.progress(1);
+
+                                tlTitle7.progress(0).pause();
+                                tlTitle6.progress(0).pause();
+                                tlTitle5.progress(1).pause();
+                                tlTitle4.progress(1).pause();
+                                tlTitle3.progress(1).pause();
+                                tlTitle2.progress(1).pause();
+                                break;
+                            case 5:
+                                tlScrollLast.progress(0);
+                                tlScroll.progress(1);
+                                tl7.progress(0);
+                                tl61.progress(0);
+                                tl6.progress(1);
+                                tl51.progress(1);
+                                tl5.progress(1);
+                                tl41.progress(1);
+                                tl4.progress(1);
+                                tl31.progress(1);
+                                tl3.progress(1);
+                                tl11.progress(1);
+                                tl1.progress(1);
+
+                                tlTitle7.progress(0).pause();
+                                tlTitle6.progress(1).pause();
+                                tlTitle5.progress(1).pause();
+                                tlTitle4.progress(1).pause();
+                                tlTitle3.progress(1).pause();
+                                tlTitle2.progress(1).pause();
+                                break;
+                            case 6:
+                                tlScrollLast.progress(1);
+                                tlScroll.progress(1);
+                                tl7.progress(1);
+                                tl61.progress(1);
+                                tl6.progress(1);
+                                tl51.progress(1);
+                                tl5.progress(1);
+                                tl41.progress(1);
+                                tl4.progress(1);
+                                tl31.progress(1);
+                                tl3.progress(1);
+                                tl11.progress(1);
+                                tl1.progress(1);
+
+
+                                tlTitle7.progress(1).pause();
+                                tlTitle6.progress(1).pause();
+                                tlTitle5.progress(1).pause();
+                                tlTitle4.progress(1).pause();
+                                tlTitle3.progress(1).pause();
+                                tlTitle2.progress(1).pause();
+
+                                break;
+                            default:
+                                break;
+                        }
+
+                        gsap.set(titles, {y: "100%"});
+                        gsap.set(titles[parseInt(link)], {y: "0"});
+                        gsap.set(sections, {xPercent: -100 * parseInt(link), ease: "none"}, 0);
+                        $('.header__menu li').removeClass('active');
+                        $('.header__menu li').eq(parseInt(link)).addClass('active');
+
+                        gsap.fromTo('.home-page', {autoAlpha: 0}, {duration: 0.5,autoAlpha: 1},0);
+                        setTimeout(function (){
+                            skipMode = false;
+                            $('.header__menu').removeClass('blocked');
+                        },500);
+                    },500);
                 }
             });
 
+            $(document).on('click', '.projects__menu a', function () {
+                event.preventDefault();
+                let parent = $(this).parent(),
+                    progress = projectHeightsScroll[parent.index()] / (projectHeightsTotal - $('.projects__blocks').innerHeight()),
+                    scrollTo = parseInt(linkData[1]) + addBlocksScroll*2 + projectBlocksScroll*progress;
+                st.scroll(scrollTo);
+            });
+            $(document).on('click', '.news__menu a', function () {
+                event.preventDefault();
+                let parent = $(this).parent(),
+                    progress = newsHeightsScroll[parent.index()] / (newsHeightsTotal - $('.news__blocks').innerHeight()),
+                    scrollTo = parseInt(linkData[5]) + addBlocksScroll + newsBlocksScroll*progress;
+                st.scroll(scrollTo);
+            });
         } else {
-            // Mobile fallback - simple smooth scroll
-            $(document).on('click', '.js-scroll-link', function (event) {
+            $(document).on('click', '.js-scroll-link', function () {
                 event.preventDefault();
-                let link = parseInt($(this).data('link'));
-                let targetSection;
-                
-                switch(link) {
-                    case 0: targetSection = '.section-intro'; break;
-                    case 1: targetSection = '.section-about'; break;
-                    case 2: 
-                    case 3:
-                    case 4:
-                    case 5: targetSection = '.horizontal-scroll-wrapper'; break;
-                    case 6: targetSection = '.section-contact'; break;
-                    default: targetSection = '.section-intro';
-                }
-                
-                if ($(targetSection).length) {
-                    let topPos = $(targetSection).offset().top;
-                    let header = $('.header').height();
-                    $("html, body").animate({scrollTop: topPos - header}, 500);
-                }
+                let href = $(this).attr('href'),
+                    topPos = $(href).offset(),
+                    header = $('.header').height();
+                $("html, body").animate({scrollTop: topPos.top - header}, 500);
             });
         }
     }
@@ -382,75 +944,82 @@ $(function (){
         var slideDuration = 0.3;
 
         var slides = document.querySelectorAll(".slide");
+        //var prevButton = document.querySelector("#prevButton");
+        //var nextButton = document.querySelector("#nextButton");
+
         var numSlides = slides.length;
-        
-        // Only initialize slider if there are slides
-        if (numSlides > 0) {
-            for (var i = 0; i < numSlides; i++) {
-                TweenLite.set(slides[i], {
-                    backgroundColor: Math.random() * 0xffffff,
-                    xPercent: i * 100
-                });
+
+        for (var i = 0; i < numSlides; i++) {
+            TweenLite.set(slides[i], {
+                backgroundColor: Math.random() * 0xffffff,
+                xPercent: i * 100
+            });
+        }
+
+        var wrap = wrapPartial(-100, (numSlides - 1) * 100);
+
+        var animation = TweenMax.to(slides, 1, {
+            xPercent: "-=" + (numSlides * 100),
+            ease: Linear.easeNone,
+            paused: true,
+            repeat: -1,
+            modifiers: {
+                xPercent: wrap
             }
+        });
 
-            var wrap = wrapPartial(-100, (numSlides - 1) * 100);
+        var proxy = document.createElement("div");
+        TweenLite.set(proxy, { x: "+=0" });
 
-            var animation = TweenMax.to(slides, 1, {
-                xPercent: "-=" + (numSlides * 100),
-                ease: Linear.easeNone,
-                paused: true,
-                repeat: -1,
-                modifiers: {
-                    xPercent: wrap
-                }
+        var slideAnimation = TweenLite.to({}, 0.1, {});
+        var slideWidth = 0;
+        var wrapWidth = 0;
+        resize();
+
+        window.addEventListener("resize", resize);
+
+        /*prevButton.addEventListener("click", function() {
+            animateSlides(-1);
+        });
+
+        nextButton.addEventListener("click", function() {
+            animateSlides(1);
+        });*/
+
+        function animateSlides(direction) {
+            slideAnimation.kill();
+            var x = snapX(gsap.getProperty(proxy,'x') + direction * slideWidth);
+            slideAnimation = gsap.to(proxy, {duration: slideDuration, x: x,onUpdate: updateProgress});
+        }
+
+        function updateProgress() {
+            animation.progress(gsap.getProperty(proxy,'x') / wrapWidth);
+        }
+
+        function snapX(x) {
+            return Math.round(x / slideWidth) * slideWidth;
+        }
+
+        function resize() {
+            var norm = (gsap.getProperty(proxy,'x') / wrapWidth) || 0;
+            slideWidth = slides[0].offsetWidth;
+            wrapWidth = slideWidth * numSlides;
+
+            TweenLite.set(proxy, {
+                x: norm * wrapWidth
             });
 
-            var proxy = document.createElement("div");
-            TweenLite.set(proxy, { x: "+=0" });
+            animateSlides(0);
+            slideAnimation.progress(1);
+        }
 
-            var slideAnimation = TweenLite.to({}, 0.1, {});
-            var slideWidth = 0;
-            var wrapWidth = 0;
-            resize();
-
-            window.addEventListener("resize", resize);
-
-            function animateSlides(direction) {
-                slideAnimation.kill();
-                var x = snapX(gsap.getProperty(proxy,'x') + direction * slideWidth);
-                slideAnimation = gsap.to(proxy, {duration: slideDuration, x: x,onUpdate: updateProgress});
+        function wrapPartial(min, max) {
+            var r = max - min;
+            return function(value) {
+                var v = value - min;
+                return ((r + v % r) % r) + min;
             }
-
-            function updateProgress() {
-                animation.progress(gsap.getProperty(proxy,'x') / wrapWidth);
-            }
-
-            function snapX(x) {
-                return Math.round(x / slideWidth) * slideWidth;
-            }
-
-            function resize() {
-                if (!slides[0]) return;
-                var norm = (gsap.getProperty(proxy,'x') / wrapWidth) || 0;
-                slideWidth = slides[0].offsetWidth;
-                wrapWidth = slideWidth * numSlides;
-
-                TweenLite.set(proxy, {
-                    x: norm * wrapWidth
-                });
-
-                animateSlides(0);
-                slideAnimation.progress(1);
-            }
-
-            function wrapPartial(min, max) {
-                var r = max - min;
-                return function(value) {
-                    var v = value - min;
-                    return ((r + v % r) % r) + min;
-                }
-            }
-        } // End if (numSlides > 0)
+        }
     }
 
     $('.content__form-input input').on('change blur',function (){
@@ -512,3 +1081,6 @@ $(function (){
     }
 });
 //# sourceMappingURL=maps/main.js.map
+
+
+[Process completed successfully with exit code 0]

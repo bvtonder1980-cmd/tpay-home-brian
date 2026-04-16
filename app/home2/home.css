@@ -1079,11 +1079,13 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .home-page {
-  /* Changed from horizontal flex to vertical block layout */
-  display: block;
+  height: 100vh;
   top: 0;
   left: 0;
   padding-top: 4.63542vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   position: relative;
 }
 
@@ -1096,38 +1098,6 @@ body::-webkit-scrollbar-thumb:hover {
   }
 }
 
-/* Vertical sections */
-.vertical-section {
-  width: 100%;
-  min-height: 100vh;
-}
-
-.vertical-section .scrollable {
-  width: 100%;
-  height: 100vh;
-}
-
-/* Horizontal scroll wrapper */
-.horizontal-scroll-wrapper {
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  position: relative;
-}
-
-.horizontal-scroll-container {
-  display: flex;
-  height: 100%;
-  will-change: transform;
-}
-
-.horizontal-scroll-container .scrollable {
-  flex-shrink: 0;
-  width: 100vw;
-  height: 100%;
-}
-
-/* Keep original scrollable styling */
 .home-page .scrollable {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2920,31 +2890,6 @@ body::-webkit-scrollbar-thumb:hover {
 @media screen and (max-width: 768px) and (orientation: portrait) {
   .home-page .scrollable {
     display: block;
-    height: auto;
-  }
-  
-  /* Mobile: Stack all sections vertically */
-  .vertical-section {
-    min-height: auto;
-    height: auto;
-  }
-  
-  .vertical-section .scrollable {
-    height: auto;
-  }
-  
-  .horizontal-scroll-wrapper {
-    height: auto;
-    overflow: visible;
-  }
-  
-  .horizontal-scroll-container {
-    display: block;
-    transform: none !important;
-  }
-  
-  .horizontal-scroll-container .scrollable {
-    width: 100%;
     height: auto;
   }
 }

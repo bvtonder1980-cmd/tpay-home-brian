@@ -26,31 +26,13 @@ export default function Home() {
             <div className="scroll">
                 <div className="home-page">
                     <PageTitles showRegister={showRegister} registerPercentage={registerPercentage} />
-                    
-                    {/* Vertical Section 1: Home/Intro */}
-                    <div className="vertical-section section-intro">
-                        <Intro showLogin={showLogin} loginMessage={loginMessage} setLoginMessage={setLoginMessage} loginError={loginError} setLoginError={setLoginError} setShowLogin={setShowLogin} onRegisterClick={() => {document.getElementById('contact-link')?.click(); setTimeout(() => {setShowRegister(true);}, 650);}} />
-                    </div>
-                    
-                    {/* Vertical Section 2: About/travelPay */}
-                    <div className="vertical-section section-about">
-                        <About />
-                    </div>
-                    
-                    {/* Horizontal Scroll Container: Cards → Crypto → Global → Wallet */}
-                    <div className="horizontal-scroll-wrapper">
-                        <div className="horizontal-scroll-container">
-                            <Cards />
-                            <Crypto />
-                            <International />
-                            <Wallet />
-                        </div>
-                    </div>
-                    
-                    {/* Vertical Section 3: Contact */}
-                    <div className="vertical-section section-contact">
-                        <Contact showRegister={showRegister} registerPercentage={registerPercentage} setRegisterPercentage={setRegisterPercentage} onRegisterClick={() => {setShowRegister(true);}} />
-                    </div>
+                    <Intro showLogin={showLogin} loginMessage={loginMessage} setLoginMessage={setLoginMessage} loginError={loginError} setLoginError={setLoginError} setShowLogin={setShowLogin} onRegisterClick={() => {document.getElementById('contact-link')?.click(); setTimeout(() => {setShowRegister(true);}, 650);}} />
+                    <About />
+                    <Cards />
+                    <Crypto />
+                    <International />
+                    <Wallet />
+                    <Contact showRegister={showRegister} registerPercentage={registerPercentage} setRegisterPercentage={setRegisterPercentage} onRegisterClick={() => {setShowRegister(true);}} />
                    
                 </div>
             </div>
