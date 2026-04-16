@@ -259,11 +259,6 @@ body {
   min-height: 100vh;
 }
 
-/* Page 1 (Intro) - Ocean Blue to Almost Black Gradient */
-section.home .content {
-  background: linear-gradient(135deg, #0077B6 0%, #034078 50%, #0A1628 100%) !important;
-}
-
 input,
 button {
   -webkit-appearance: none;
