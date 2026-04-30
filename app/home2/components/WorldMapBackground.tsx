@@ -49,10 +49,12 @@ export default function WorldMapBackground() {
         projection="geoMercator"
         projectionConfig={{
           scale: 150,
-          center: [20, 5],
+          center: [20, 0],
         }}
-        width={800}
-        height={500}
+        style={{
+          width: '100%',
+          height: '100%',
+        }}
       >
         <Geographies geography={geoUrl}>
           {({ geographies }) =>
@@ -82,7 +84,7 @@ export default function WorldMapBackground() {
             key={dest.name}
             from={CAPE_TOWN}
             to={dest.coordinates}
-            stroke="#E07A5F"
+            stroke="#4A90D9"
             strokeWidth={1.5}
             strokeLinecap="round"
             className={`connection-line connection-line-${destinations.indexOf(dest)}`}
@@ -101,7 +103,7 @@ export default function WorldMapBackground() {
         {/* Destination markers */}
         {destinations.map((dest) => (
           <Marker key={dest.name} coordinates={dest.coordinates}>
-            <circle r={3} fill="#E07A5F" stroke="#fff" strokeWidth={1} />
+            <circle r={3} fill="#4A90D9" stroke="#fff" strokeWidth={1} />
           </Marker>
         ))}
       </ComposableMap>
