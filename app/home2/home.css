@@ -460,11 +460,11 @@ body::-webkit-scrollbar-thumb:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #E07A5F 0%, #F5A68C 100%);
+  background: linear-gradient(135deg, #4A90D9 0%, #6BA3E0 100%);
   border-radius: 10px;
   color: white;
-}
-
+  }
+  
 .login-card__icon svg {
   width: 18px;
   height: 18px;
@@ -515,10 +515,10 @@ body::-webkit-scrollbar-thumb:hover {
 
 .login-card__input-group input:focus {
   outline: none;
-  border-color: #E07A5F;
-  box-shadow: 0 0 0 3px rgba(224, 122, 95, 0.15);
+  border-color: #4A90D9;
+  box-shadow: 0 0 0 3px rgba(74, 144, 217, 0.15);
   background: #fff;
-}
+  }
 
 .login-card__forgot {
   display: inline-block;
@@ -530,8 +530,8 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .login-card__forgot:hover {
-  color: #E07A5F;
-}
+  color: #4A90D9;
+  }
 
 /* Trust Indicators */
 .trust-indicators {
@@ -561,14 +561,14 @@ body::-webkit-scrollbar-thumb:hover {
 
 .trust-item:hover {
   background: rgba(255, 255, 255, 0.8);
-  border-color: rgba(224, 122, 95, 0.3);
+  border-color: rgba(74, 144, 217, 0.3);
   transform: translateY(-2px);
 }
 
 .trust-item svg {
   width: 16px;
   height: 16px;
-  color: #E07A5F;
+  color: #4A90D9;
   flex-shrink: 0;
 }
 
