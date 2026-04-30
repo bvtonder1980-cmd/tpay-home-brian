@@ -124,8 +124,11 @@ export default function About() {
                     loop 
                     playsInline
                     poster="/images/beach-waves.jpg"
+                    onError={(e) => console.log("[v0] Video failed to load:", e)}
+                    onLoadedData={() => console.log("[v0] Video loaded successfully")}
                   >
                     <source src="https://cdn.pixabay.com/video/2025/01/25/251418_large.mp4" type="video/mp4" />
+                    <source src="https://cdn.pixabay.com/video/2025/01/25/251418_medium.mp4" type="video/mp4" />
                   </video>
                   <div className="about-video-overlay"></div>
                 </div>
