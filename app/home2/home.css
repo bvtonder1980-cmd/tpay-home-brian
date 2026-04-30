@@ -1173,29 +1173,31 @@ body::-webkit-scrollbar-thumb:hover {
   border-left-color: rgba(255, 255, 255, 0.15);
 }
 
-/* About Page - World Map Background */
+/* About Page - Connected World Background */
 .about-content {
   position: relative;
   overflow: hidden;
 }
 
-.world-map-background {
+.about-bg-image {
   position: absolute;
   inset: 0;
   z-index: 0;
-  background: linear-gradient(135deg, #0a1628 0%, #142846 50%, #1e3a5f 100%);
 }
 
-.world-map-background svg {
+.about-bg-image img {
+  position: absolute;
   width: 100%;
   height: 100%;
+  top: 0;
+  left: 0;
+  object-fit: cover;
 }
 
 .about-video-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(10, 22, 40, 0.4) 0%, rgba(20, 40, 70, 0.35) 50%, rgba(30, 58, 95, 0.3) 100%);
-  z-index: 1;
+  background: linear-gradient(135deg, rgba(10, 22, 40, 0.75) 0%, rgba(20, 40, 70, 0.7) 50%, rgba(30, 58, 95, 0.65) 100%);
 }
 
 .about-content .content__left,
@@ -1204,80 +1206,50 @@ body::-webkit-scrollbar-thumb:hover {
   z-index: 2;
 }
 
-/* Animated Connection Lines */
-.connection-line {
-  stroke-dasharray: 1000;
-  stroke-dashoffset: 1000;
-  animation: draw-line 3s ease-out forwards infinite;
-  opacity: 0.7;
+/* Floating Fintech Icons */
+.about-floating-icons {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
 }
 
-.connection-line-0 { animation-delay: 0s; }
-.connection-line-1 { animation-delay: 0.3s; }
-.connection-line-2 { animation-delay: 0.6s; }
-.connection-line-3 { animation-delay: 0.9s; }
-.connection-line-4 { animation-delay: 1.2s; }
-.connection-line-5 { animation-delay: 1.5s; }
-.connection-line-6 { animation-delay: 1.8s; }
-.connection-line-7 { animation-delay: 2.1s; }
-.connection-line-8 { animation-delay: 2.4s; }
-.connection-line-9 { animation-delay: 2.7s; }
-.connection-line-10 { animation-delay: 3.0s; }
-.connection-line-11 { animation-delay: 3.3s; }
-.connection-line-12 { animation-delay: 3.6s; }
-.connection-line-13 { animation-delay: 3.9s; }
-.connection-line-14 { animation-delay: 4.2s; }
-.connection-line-15 { animation-delay: 4.5s; }
-.connection-line-16 { animation-delay: 4.8s; }
-.connection-line-17 { animation-delay: 5.1s; }
+.about-float-icon {
+  position: absolute;
+  color: rgba(74, 144, 217, 0.25);
+  animation: about-float linear infinite;
+}
 
-@keyframes draw-line {
+.about-float-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.about-float-1 { width: 32px; left: 4%; animation-duration: 24s; animation-delay: 0s; }
+.about-float-2 { width: 28px; left: 14%; animation-duration: 28s; animation-delay: -5s; }
+.about-float-3 { width: 35px; left: 25%; animation-duration: 22s; animation-delay: -12s; }
+.about-float-4 { width: 26px; left: 38%; animation-duration: 26s; animation-delay: -3s; }
+.about-float-5 { width: 30px; left: 50%; animation-duration: 25s; animation-delay: -9s; }
+.about-float-6 { width: 34px; left: 62%; animation-duration: 23s; animation-delay: -15s; }
+.about-float-7 { width: 24px; left: 72%; animation-duration: 27s; animation-delay: -7s; }
+.about-float-8 { width: 30px; left: 82%; animation-duration: 21s; animation-delay: -11s; }
+.about-float-9 { width: 28px; left: 90%; animation-duration: 29s; animation-delay: -4s; }
+.about-float-10 { width: 32px; left: 96%; animation-duration: 24s; animation-delay: -8s; }
+
+@keyframes about-float {
   0% {
-    stroke-dashoffset: 1000;
+    transform: translateY(100vh) rotate(0deg);
     opacity: 0;
   }
   10% {
-    opacity: 0.7;
+    opacity: 1;
   }
-  50% {
-    stroke-dashoffset: 0;
-    opacity: 0.7;
-  }
-  80% {
-    stroke-dashoffset: 0;
-    opacity: 0.7;
+  90% {
+    opacity: 1;
   }
   100% {
-    stroke-dashoffset: 0;
-    opacity: 0;
-  }
-}
-
-/* Pulsing Cape Town Marker */
-.pulse-marker {
-  animation: pulse-glow 2s ease-in-out infinite;
-}
-
-.pulse-ring {
-  animation: pulse-expand 2s ease-out infinite;
-}
-
-@keyframes pulse-glow {
-  0%, 100% {
-    filter: drop-shadow(0 0 3px #E07A5F);
-  }
-  50% {
-    filter: drop-shadow(0 0 8px #E07A5F) drop-shadow(0 0 15px #E07A5F);
-  }
-}
-
-@keyframes pulse-expand {
-  0% {
-    r: 10;
-    opacity: 0.8;
-  }
-  100% {
-    r: 20;
+    transform: translateY(-100px) rotate(360deg);
     opacity: 0;
   }
 }
