@@ -1427,7 +1427,7 @@ body::-webkit-scrollbar-thumb:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, rgba(224, 122, 95, 0.2) 0%, rgba(245, 166, 140, 0.2) 100%);
+  background: #ffffff;
   border-radius: 12px;
   flex-shrink: 0;
 }
