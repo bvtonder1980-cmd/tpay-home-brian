@@ -116,20 +116,9 @@ export default function About() {
         <div className="scrollable dark-theme">
             <section className="projects">
               <div className="content about-content">
-                {/* Background Video */}
-                <div className="about-video-bg">
-                  <video 
-                    autoPlay 
-                    muted 
-                    loop 
-                    playsInline
-                    poster="/images/beach-waves.jpg"
-                    onError={(e) => console.log("[v0] Video failed to load:", e)}
-                    onLoadedData={() => console.log("[v0] Video loaded successfully")}
-                  >
-                    <source src="https://cdn.pixabay.com/video/2025/01/25/251418_large.mp4" type="video/mp4" />
-                    <source src="https://cdn.pixabay.com/video/2025/01/25/251418_medium.mp4" type="video/mp4" />
-                  </video>
+                {/* Background Image */}
+                <div className="about-bg-image">
+                  <img src="/images/beach-waves.jpg" alt="" />
                   <div className="about-video-overlay"></div>
                 </div>
                 <div className="content__left">
