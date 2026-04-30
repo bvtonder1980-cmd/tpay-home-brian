@@ -49,12 +49,10 @@ export default function WorldMapBackground() {
         projection="geoMercator"
         projectionConfig={{
           scale: 150,
-          center: [20, 0],
+          center: [20, 5],
         }}
-        style={{
-          width: '100%',
-          height: '100%',
-        }}
+        width={800}
+        height={500}
       >
         <Geographies geography={geoUrl}>
           {({ geographies }) =>
