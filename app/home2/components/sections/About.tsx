@@ -125,7 +125,7 @@ export default function About() {
                     playsInline
                     poster="/images/beach-waves.jpg"
                   >
-                    <source src="https://cdn.pixabay.com/video/2024/12/03/244754_large.mp4" type="video/mp4" />
+                    <source src="https://cdn.pixabay.com/video/2025/01/25/251418_large.mp4" type="video/mp4" />
                   </video>
                   <div className="about-video-overlay"></div>
                 </div>
