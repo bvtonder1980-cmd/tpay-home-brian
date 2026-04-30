@@ -1173,19 +1173,19 @@ body::-webkit-scrollbar-thumb:hover {
   border-left-color: rgba(255, 255, 255, 0.15);
 }
 
-/* About Page - Video Background */
+/* About Page - Connected World Background */
 .about-content {
   position: relative;
   overflow: hidden;
 }
 
-.about-video-bg {
+.about-bg-image {
   position: absolute;
   inset: 0;
   z-index: 0;
 }
 
-.about-video-bg video {
+.about-bg-image img {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -1197,13 +1197,61 @@ body::-webkit-scrollbar-thumb:hover {
 .about-video-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(30, 58, 95, 0.85) 0%, rgba(45, 74, 111, 0.8) 50%, rgba(61, 90, 127, 0.75) 100%);
+  background: linear-gradient(135deg, rgba(10, 22, 40, 0.75) 0%, rgba(20, 40, 70, 0.7) 50%, rgba(30, 58, 95, 0.65) 100%);
 }
 
 .about-content .content__left,
 .about-content .content__right {
   position: relative;
+  z-index: 2;
+}
+
+/* Floating Fintech Icons */
+.about-floating-icons {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
   z-index: 1;
+}
+
+.about-float-icon {
+  position: absolute;
+  color: rgba(74, 144, 217, 0.25);
+  animation: about-float linear infinite;
+}
+
+.about-float-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.about-float-1 { width: 32px; left: 4%; animation-duration: 24s; animation-delay: 0s; }
+.about-float-2 { width: 28px; left: 14%; animation-duration: 28s; animation-delay: -5s; }
+.about-float-3 { width: 35px; left: 25%; animation-duration: 22s; animation-delay: -12s; }
+.about-float-4 { width: 26px; left: 38%; animation-duration: 26s; animation-delay: -3s; }
+.about-float-5 { width: 30px; left: 50%; animation-duration: 25s; animation-delay: -9s; }
+.about-float-6 { width: 34px; left: 62%; animation-duration: 23s; animation-delay: -15s; }
+.about-float-7 { width: 24px; left: 72%; animation-duration: 27s; animation-delay: -7s; }
+.about-float-8 { width: 30px; left: 82%; animation-duration: 21s; animation-delay: -11s; }
+.about-float-9 { width: 28px; left: 90%; animation-duration: 29s; animation-delay: -4s; }
+.about-float-10 { width: 32px; left: 96%; animation-duration: 24s; animation-delay: -8s; }
+
+@keyframes about-float {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) rotate(360deg);
+    opacity: 0;
+  }
 }
 
 /* About Page - Modern Styles */
