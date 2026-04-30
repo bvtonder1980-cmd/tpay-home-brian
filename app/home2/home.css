@@ -1198,7 +1198,7 @@ body::-webkit-scrollbar-thumb:hover {
 .about-video-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(10, 22, 40, 0.75) 0%, rgba(20, 40, 70, 0.7) 50%, rgba(30, 58, 95, 0.65) 100%);
+  background: linear-gradient(135deg, rgba(20, 30, 48, 0.92) 0%, rgba(30, 45, 65, 0.9) 50%, rgba(25, 40, 55, 0.88) 100%);
 }
 
 .about-content .content__left,
