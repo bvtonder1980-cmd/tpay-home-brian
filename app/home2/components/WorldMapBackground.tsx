@@ -82,7 +82,7 @@ export default function WorldMapBackground() {
             key={dest.name}
             from={CAPE_TOWN}
             to={dest.coordinates}
-            stroke="#4A90D9"
+            stroke="#E07A5F"
             strokeWidth={1.5}
             strokeLinecap="round"
             className={`connection-line connection-line-${destinations.indexOf(dest)}`}
@@ -101,7 +101,7 @@ export default function WorldMapBackground() {
         {/* Destination markers */}
         {destinations.map((dest) => (
           <Marker key={dest.name} coordinates={dest.coordinates}>
-            <circle r={3} fill="#4A90D9" stroke="#fff" strokeWidth={1} />
+            <circle r={3} fill="#E07A5F" stroke="#fff" strokeWidth={1} />
           </Marker>
         ))}
       </ComposableMap>
