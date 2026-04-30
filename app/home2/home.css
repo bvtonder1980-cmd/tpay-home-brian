@@ -253,8 +253,8 @@ body {
   -o-font-smoothing: antialiased;
   -webkit-locale: auto;
   font-family: "Inter", "Barlow", -apple-system, BlinkMacSystemFont, sans-serif;
-  color: #1E3A5F !important;
-  background: linear-gradient(135deg, #E8F4FC 0%, #F5EDE8 25%, #FFE5D8 55%, #F5C4B0 100%) !important;
+  color: #ffffff !important;
+  background: linear-gradient(135deg, #000000 0%, #0a1628 25%, #152238 55%, #1a2d4a 100%) !important;
   background-attachment: fixed !important;
   min-height: 100vh;
 }
