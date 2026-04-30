@@ -116,9 +116,16 @@ export default function About() {
         <div className="scrollable dark-theme">
             <section className="projects">
               <div className="content about-content">
-                {/* Background Image */}
-                <div className="about-bg-image">
-                  <img src="/images/beach-waves.jpg" alt="" />
+                {/* Background Video */}
+                <div className="about-video-bg">
+                  <video 
+                    autoPlay 
+                    muted 
+                    loop 
+                    playsInline
+                  >
+                    <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/347325_tiny-dMURbxb8SUmXgUDquFzBJpQA4LEBV7.mp4" type="video/mp4" />
+                  </video>
                   <div className="about-video-overlay"></div>
                 </div>
                 <div className="content__left">
