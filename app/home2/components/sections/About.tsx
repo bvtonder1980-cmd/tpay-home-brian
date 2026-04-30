@@ -124,7 +124,7 @@ export default function About() {
                     loop 
                     playsInline
                   >
-                    <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/347325_tiny-dMURbxb8SUmXgUDquFzBJpQA4LEBV7.mp4" type="video/mp4" />
+                    <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/istockphoto-2217012106-640_adpp_is-ZgGpA6QCjFBckpBC4oPVFYbMb4N5KY.mp4" type="video/mp4" />
                   </video>
                   <div className="about-video-overlay"></div>
                 </div>
