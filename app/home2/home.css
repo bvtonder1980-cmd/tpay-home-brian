@@ -4143,7 +4143,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 .login-btn {
   background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), #00B4D8;
-  border: 2px solid #00B4D8;
+  border: 2px solid rgba(0, 135, 162, 1);
   padding: 10px 20px;
   border-radius: 5px;
   font-size: 18px;
