@@ -4142,8 +4142,8 @@ body::-webkit-scrollbar-thumb:hover {
 /*# sourceMappingURL=maps/main.css.map */
 
 .login-btn {
-  background: #E07A5F;
-  border: 2px solid #E07A5F;
+  background: #00B4D8;
+  border: 2px solid #00B4D8;
   padding: 10px 20px;
   border-radius: 5px;
   font-size: 18px;
@@ -4154,8 +4154,8 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .login-btn:hover {
-  background: #C96A52;
-  border-color: #C96A52;
+  background: #0096B4;
+  border-color: #0096B4;
   color: #fff;
 }
 
