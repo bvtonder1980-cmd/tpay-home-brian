@@ -344,20 +344,31 @@ body::-webkit-scrollbar-thumb:hover {
 
 .logo-text {
   font-family: "Barlow", sans-serif;
-  font-size: 3.2vw;
-  font-weight: 600;
   letter-spacing: -0.02em;
-  line-height: 1;
-  display: inline-block;
+  line-height: 1.2;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-welcome {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #00B4D8;
+  margin-bottom: 0.25rem;
+}
+
+.logo-brand {
+  font-size: 2.5rem;
+  font-weight: 600;
 }
 
 .logo-travel {
-  color: #1E3A5F;
+  color: #888888;
   font-weight: 500;
 }
 
 .logo-pay {
-  color: #4A90D9;
+  color: #00B4D8;
   font-weight: 700;
 }
 
