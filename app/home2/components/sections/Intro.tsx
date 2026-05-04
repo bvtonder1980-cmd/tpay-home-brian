@@ -72,7 +72,6 @@ export default function Intro({ showLogin, setShowLogin, onRegisterClick, loginM
               {/* Logo */}
               <div className="content__logo">
                 <div className="logo-text">
-                  <span className="logo-welcome">Welcome to</span>
                   <span className="logo-brand"><span className="logo-travel">travel</span><span className="logo-pay">Pay</span></span>
                 </div>
               </div>
