@@ -71,9 +71,11 @@ export default function Intro({ showLogin, setShowLogin, onRegisterClick, loginM
             <div className="content__left">
               {/* Logo */}
               <div className="content__logo">
-                <div className="logo-text">
-                  <span className="logo-brand"><span className="logo-travel">travel</span><span className="logo-pay">Pay</span></span>
-                </div>
+                <img 
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Welcome%20to%20TravelPay%20Logo-hhReHjxD8f1WI8pMfwtGnb1UkgIr8c.png" 
+                  alt="Welcome to travelPay" 
+                  className="logo-image"
+                />
               </div>
               
               {/* Hero Headline */}
@@ -101,6 +103,15 @@ export default function Intro({ showLogin, setShowLogin, onRegisterClick, loginM
                 </div>
                 {loginMessage && <Alert variant="info">{loginMessage}</Alert>}
                 {loginError && <Alert variant="danger">{loginError}</Alert>}
+                <div className="content__btn-block">
+                  <a className="login-btn" data-link="6" onClick={() => setShowLogin(true)}>
+                    Login
+                  </a>
+                  &nbsp;
+                  <a className="register-btn" data-link="6" onClick={onRegisterClick}>
+                    Register
+                  </a>
+                </div>
                 <div className="login-card__form">
                   <div className="login-card__input-group">
                     <svg className="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -118,15 +129,6 @@ export default function Intro({ showLogin, setShowLogin, onRegisterClick, loginM
                   </div>
                 </div>
                 <a href="#" className="login-card__forgot">Forgot password?</a>
-                <div className="content__btn-block">
-                  <a className="login-btn" data-link="6" onClick={() => setShowLogin(true)}>
-                    Login
-                  </a>
-                  &nbsp;
-                  <a className="register-btn" data-link="6" onClick={onRegisterClick}>
-                    Register
-                  </a>
-                </div>
               </div>
               
               {/* Trust Indicators */}

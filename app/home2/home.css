@@ -253,8 +253,8 @@ body {
   -o-font-smoothing: antialiased;
   -webkit-locale: auto;
   font-family: "Inter", "Barlow", -apple-system, BlinkMacSystemFont, sans-serif;
-  color: #ffffff !important;
-  background: #000000 !important;
+  color: #1E3A5F !important;
+  background: linear-gradient(135deg, #E8F4FC 0%, #F5EDE8 25%, #FFE5D8 55%, #F5C4B0 100%) !important;
   background-attachment: fixed !important;
   min-height: 100vh;
 }
@@ -344,31 +344,20 @@ body::-webkit-scrollbar-thumb:hover {
 
 .logo-text {
   font-family: "Barlow", sans-serif;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
-  display: flex;
-  flex-direction: column;
-}
-
-.logo-welcome {
-  font-size: 1rem;
-  font-weight: 400;
-  color: #00B4D8;
-  margin-bottom: 0.25rem;
-}
-
-.logo-brand {
-  font-size: 3.125rem;
+  font-size: 3.2vw;
   font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  display: inline-block;
 }
 
 .logo-travel {
-  color: #9095A0;
+  color: #1E3A5F;
   font-weight: 500;
 }
 
 .logo-pay {
-  color: #00B4D8;
+  color: #4A90D9;
   font-weight: 700;
 }
 
@@ -399,7 +388,7 @@ body::-webkit-scrollbar-thumb:hover {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  color: #00B4D8;
+  color: #E07A5F;
   margin-bottom: 1rem;
   position: relative;
   padding-left: 2rem;
@@ -413,7 +402,7 @@ body::-webkit-scrollbar-thumb:hover {
   transform: translateY(-50%);
   width: 1.5rem;
   height: 2px;
-  background: #00B4D8;
+  background: #E07A5F;
 }
 
 .title-main {
@@ -427,12 +416,12 @@ body::-webkit-scrollbar-thumb:hover {
   font-size: 2.8vw;
   font-weight: 700;
   line-height: 1.1;
-  color: #ffffff;
+  color: #1E3A5F;
   letter-spacing: -0.02em;
 }
 
 .title-gradient {
-  background: linear-gradient(135deg, #00B4D8 0%, #48CAE4 100%);
+  background: linear-gradient(135deg, #E07A5F 0%, #F5A68C 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -448,14 +437,14 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* Login Card */
 .login-card {
-  background: #000000;
+  background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(0, 180, 216, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.8);
   border-radius: 16px;
   padding: 1rem;
   margin: 1rem 0;
-  box-shadow: 0 8px 32px rgba(0, 180, 216, 0.3), 0 0 60px rgba(0, 180, 216, 0.15);
+  box-shadow: 0 8px 32px rgba(30, 58, 95, 0.1);
 }
 
 .login-card__header {
@@ -471,7 +460,7 @@ body::-webkit-scrollbar-thumb:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), #00B4D8;
+  background: linear-gradient(135deg, #4A90D9 0%, #6BA3E0 100%);
   border-radius: 10px;
   color: white;
   }
@@ -484,7 +473,7 @@ body::-webkit-scrollbar-thumb:hover {
 .login-card__title {
   font-size: 1rem;
   font-weight: 600;
-  color: #ffffff;
+  color: #1E3A5F;
 }
 
 .login-card__form {
@@ -571,15 +560,15 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .trust-item:hover {
-  background: rgba(0, 180, 216, 0.1);
-  border-color: rgba(0, 180, 216, 0.3);
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(224, 122, 95, 0.3);
   transform: translateY(-2px);
 }
 
 .trust-item svg {
   width: 16px;
   height: 16px;
-  color: #00B4D8;
+  color: #E07A5F;
   flex-shrink: 0;
 }
 
@@ -4153,8 +4142,8 @@ body::-webkit-scrollbar-thumb:hover {
 /*# sourceMappingURL=maps/main.css.map */
 
 .login-btn {
-  background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), #00B4D8;
-  border: 2px solid rgba(0, 135, 162, 1);
+  background: #E07A5F;
+  border: 2px solid #E07A5F;
   padding: 10px 20px;
   border-radius: 5px;
   font-size: 18px;
@@ -4165,8 +4154,8 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .login-btn:hover {
-  background: #0096B4;
-  border-color: #0096B4;
+  background: #C96A52;
+  border-color: #C96A52;
   color: #fff;
 }
 
