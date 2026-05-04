@@ -4142,7 +4142,7 @@ body::-webkit-scrollbar-thumb:hover {
 /*# sourceMappingURL=maps/main.css.map */
 
 .login-btn {
-  background: #00B4D8;
+  background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), #00B4D8;
   border: 2px solid #00B4D8;
   padding: 10px 20px;
   border-radius: 5px;
